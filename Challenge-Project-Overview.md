@@ -23,9 +23,9 @@
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Python Compatibility | 🟢 | The tech stack is centered around Python, ensuring compatibility with the fellows' skill set in ML foundations. |
-| Data Readiness | 🟢 | The data size is under 1GB, indicating it is manageable and presumably clean enough for use within a semester without extensive preprocessing. |
-| Resource Check | 🟢 | Only requires the Google Colab free tier, which is accessible to all students and poses no additional hurdles. |
+| Python Compatibility | 🟢| The tech stack is centered around Python, ensuring compatibility with the fellows' skill set in ML foundations. |
+| Data Readiness | 🟢| The data size is under 1GB, indicating it is manageable and presumably clean enough for use within a semester without extensive preprocessing. |
+| Resource Check | 🟢| Only requires the Google Colab free tier, which is accessible to all students and poses no additional hurdles. |
 
 **Student Fit Score:** 8/10  
 **Technical Depth Score:** 7/10  
