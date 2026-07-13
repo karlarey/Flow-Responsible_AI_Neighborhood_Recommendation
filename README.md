@@ -1,121 +1,136 @@
 # Responsible AI for Personalized Neighborhood Recommendations
 
-> 💡 **Note for the team:** This is just a template. Update the above title with your AI Studio Challenge Project name. Remove all guidance notes and example text in this template and populate this README with your own content. You can work on this README throughout AI Studio, and get feedback from your AI Studio Coach and Challenge Advisor before finalizing it.  
+**Break Through Tech AI Studio — Fall 2026**  
+**Host company:** Flow  
+**Challenge Advisor:** Karla Reyes ([k.reyes@outlook.com](mailto:k.reyes@outlook.com))
+
+Help newcomers to Miami explore neighborhoods and receive **3–5 personalized area recommendations** using public housing/migration data, NLP crowd themes, similarity-based ML, and an **MCP-backed responsible AI agent**.
+
+> **For the student team:** This README is your portfolio artifact. Sections marked *(team to complete)* should be filled in during AI Studio. Start with [Challenge-Project-Overview.md](Challenge-Project-Overview.md) and [Getting-Started-for-Fellows.md](Getting-Started-for-Fellows.md).
 
 ---
 
-### 👥 **Team Members**
+## What this project builds
 
-**Example:**
+1. Newcomer sets **budget** and **priorities** (transit, social, quiet, pets, walkable).
+2. **ML recommender** (cosine similarity) ranks Miami-Dade ZIPs from starter data.
+3. **NLP** surfaces crowd-review themes by ZIP.
+4. **MCP server** exposes data and recommender tools to an AI agent.
+5. **Agent** answers only from tool outputs — no invented listings or stats.
 
-| Name             | GitHub Handle | Contribution                                                             |
-|------------------|---------------|--------------------------------------------------------------------------|
-| Taylor Nguyen    | @taylornguyen | Data exploration, visualization, overall project coordination            |
-| Jordan Ramirez   | @jramirez     | Data collection, exploratory data analysis (EDA), dataset documentation  |
-| Amina Hassan     | @aminahassan  | Data preprocessing, feature engineering, data validation                 |
-| Priya Mehta      | @pmehta       | Model selection, hyperparameter tuning, model training and optimization  |
-| Chris Park       | @chrispark    | Model evaluation, performance analysis, results interpretation           |
+See [Challenge-Project-Overview.md](Challenge-Project-Overview.md) for milestones, success metrics, and responsible AI guardrails.
 
 ---
 
-## 🎯 **Project Highlights**
+## Repository guide
 
-**Example:**
+| Path | Description |
+|------|-------------|
+| [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | Full project brief from your Challenge Advisor |
+| [data/](data/) | Starter dataset (public + synthetic demo files) |
+| [data_dictionary.md](data_dictionary.md) | Column definitions and limitations |
+| [MCP_SETUP.md](MCP_SETUP.md) | MCP server deliverable and setup |
+| [notebooks/](notebooks/) | Your team's Jupyter notebooks *(team to complete)* |
+| [requirements.txt](requirements.txt) | Python dependencies |
 
-- Developed a machine learning model using `[model type/technique]` to address `[challenge project task]`.
-- Achieved `[key metric or result]`, demonstrating `[value or impact]` for `[host company]`.
-- Generated actionable insights to inform business decisions at `[host company or stakeholders]`.
-- Implemented `[specific methodology]` to address industry constraints or expectations.
-
----
-
-## 👩🏽‍💻 **Setup and Installation**
-
-**Provide step-by-step instructions so someone else can run your code and reproduce your results. Depending on your setup, include:**
-
-* How to clone the repository
-* How to install dependencies
-* How to set up the environment
-* How to access the dataset(s)
-* How to run the notebook or scripts
+**Reference prototype:** [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer) — working recommender, NLP, MCP tools, and Streamlit UI.
 
 ---
 
-## 🏗️ **Project Overview**
+## Setup and installation
 
-**Describe:**
+### Clone and install
 
-- How this project is connected to the Break Through Tech AI Program
-- Your AI Studio host company and the project objective and scope
-- The real-world significance of the problem and the potential impact of your work
+```bash
+git clone https://github.com/Break-Through-Tech/Flow-Responsible_AI_Neighborhood_Recommendation.git
+cd Flow-Responsible_AI_Neighborhood_Recommendation
+python -m venv .venv
+.venv\Scripts\activate          # Windows
+# source .venv/bin/activate     # macOS/Linux
+pip install -r requirements.txt
+```
 
----
+### Environment variables (optional)
 
-## 📊 **Data Exploration**
+```bash
+copy .env.example .env
+# GEMINI_API_KEY — for live Gemini agent (optional)
+# CENSUS_API_KEY — for refreshing public data in October
+```
 
-**You might consider describing the following (as applicable):**
+### Explore the starter data
 
-* The dataset(s) used: origin, format, size, type of data
-* Data exploration and preprocessing approaches
-* Insights from your Exploratory Data Analysis (EDA)
-* Challenges and assumptions when working with the dataset(s)
+Dataset files live in [`data/`](data/). See [`data/README.md`](data/README.md) and [`data_dictionary.md`](data_dictionary.md).
 
-**Potential visualizations to include:**
+| File | Type |
+|------|------|
+| `miami_dade_public_features.csv` | Real public aggregates |
+| `area_features.csv` | Blended starter features for the recommender |
+| `crowd_text_snippets.csv` | Demo text for NLP themes |
+| `area_options.csv` | Synthetic UI cards — **NOT REAL LISTINGS** |
 
-* Plots, charts, heatmaps, feature visualizations, sample dataset images
+### Run the reference MCP server
 
----
+Use the linked prototype repo for a working MCP example:
 
-## 🧠 **Model Development**
+```bash
+git clone https://github.com/karlarey/miami-newcomer-explorer.git
+cd miami-newcomer-explorer
+pip install -r requirements.txt
+python src/mcp_server.py
+```
 
-**You might consider describing the following (as applicable):**
-
-* Model(s) used (e.g., CNN with transfer learning, regression models)
-* Feature selection and Hyperparameter tuning strategies
-* Training setup (e.g., % of data for training/validation, evaluation metric, baseline performance)
-
-
----
-
-## 📈 **Results & Key Findings**
-
-**You might consider describing the following (as applicable):**
-
-* Performance metrics (e.g., Accuracy, F1 score, RMSE)
-* How your model performed
-* Insights from evaluating model fairness
-
-**Potential visualizations to include:**
-
-* Confusion matrix, precision-recall curve, feature importance plot, prediction distribution, outputs from fairness or explainability tools
+Tools: `schema`, `area_stats`, `crowd_themes`, `recommend`, `ethics` — see [MCP_SETUP.md](MCP_SETUP.md).
 
 ---
 
-## 🚀 **Next Steps**
+## 👥 Team members *(team to complete)*
 
-**You might consider addressing the following (as applicable):**
-
-* What are some of the limitations of your model?
-* What would you do differently with more time/resources?
-* What additional datasets or techniques would you explore?
+| Name | GitHub Handle | Contribution |
+|------|---------------|--------------|
+| | | |
 
 ---
 
-## 📝 **License**
+## 🎯 Project highlights *(team to complete)*
 
-Specify how your project can be used by others. Choose an appropriate license and link it here (e.g., MIT, Apache 2.0). Make sure your Challenge Advisor approves of the selected license type. 
-
-**Example:**
-This project is licensed under the MIT License.
-
----
-
-## 📄 **References** (Optional but encouraged)
-
-Cite relevant papers, articles, or resources that supported your project.
+- 
+- 
+- 
 
 ---
 
-## 🙏 **Acknowledgements** (Optional but encouraged)
+## 📊 Data exploration *(team to complete)*
 
-Thank your Challenge Advisor, host company representatives, TA, and others who supported your project.
+Document your EDA, preprocessing choices, and insights from the starter and upgraded datasets.
+
+---
+
+## 🧠 Model development *(team to complete)*
+
+Document your recommender, NLP approach, feature engineering, and baseline vs. final metrics (Precision@3, mean cosine similarity, etc.).
+
+---
+
+## 📈 Results and key findings *(team to complete)*
+
+Document performance, responsible AI evaluation (tool grounding rate, refusal rate), and fairness/explainability notes.
+
+---
+
+## 🚀 Next steps *(team to complete)*
+
+Document limitations, future data upgrades, and what you would do with more time.
+
+---
+
+## 📝 License
+
+MIT License — confirm with Challenge Advisor before final submission.
+
+---
+
+## 🙏 Acknowledgements
+
+- **Challenge Advisor:** Karla Reyes, Flow
+- **Program:** Break Through Tech AI Studio, Fall 2026
