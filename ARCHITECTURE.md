@@ -81,7 +81,7 @@ Study (do not copy blindly): [Miami Newcomer Housing Explorer](https://github.co
 Better rec match → faster lease (occupancy ↑) → happier resident → renewal (↑)
 ```
 
-Not a Flow corporate initiative — see [ATTRIBUTION.md](ATTRIBUTION.md).
+Not a Flow corporate initiative — **hosted by Challenge Advisor alone**. See [ATTRIBUTION.md](ATTRIBUTION.md).
 
 Stakeholder detail: [STAKEHOLDERS.md](STAKEHOLDERS.md)
 

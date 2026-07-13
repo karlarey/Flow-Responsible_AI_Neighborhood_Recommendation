@@ -2,9 +2,9 @@
 
 **Break Through Tech AI Studio — Fall 2026**  
 **Affiliated org (BTT submission):** Flow  
-**Challenge Advisor:** Karla Reyes ([k.reyes@outlook.com](mailto:k.reyes@outlook.com))
+**Challenge Advisor:** Karla Reyes, AI Engineer @ Flow Miami ([k.reyes@outlook.com](mailto:k.reyes@outlook.com))
 
-> **Independent project:** Concept and CA materials by **Karla Reyes** — not a Flow corporate product. Flow is not hosting this build. See **[ATTRIBUTION.md](ATTRIBUTION.md)**.
+> **Independent project:** Concept and CA materials by **Karla Reyes, AI Engineer @ Flow Miami** — not a Flow corporate product. **Hosted by Challenge Advisor alone.** See **[ATTRIBUTION.md](ATTRIBUTION.md)**.
 
 ---
 
@@ -126,5 +126,5 @@ MIT License — confirm with Challenge Advisor before final submission.
 
 ## 🙏 Acknowledgements
 
-- **Challenge Advisor:** Karla Reyes, Flow
+- **Challenge Advisor:** Karla Reyes, AI Engineer @ Flow Miami
 - **Program:** Break Through Tech AI Studio, Fall 2026

@@ -1,10 +1,10 @@
 # Responsible AI for Personalized Neighborhood Recommendations
 
 **Company / Org (BTT submission):** Flow  
-**Challenge Advisor:** Karla Reyes, k.reyes@outlook.com  
+**Challenge Advisor:** Karla Reyes, AI Engineer @ Flow Miami · k.reyes@outlook.com  
 **Program:** Break Through Tech AI Studio — Fall 2026
 
-> **Attribution:** The **concept, architecture, and Challenge Advisor materials** are **independent work by Karla Reyes**. Flow is listed as the affiliated org on the BTT submission; **Flow is not hosting or sponsoring this build** and did not originate this idea. See **[ATTRIBUTION.md](ATTRIBUTION.md)**.
+> **Attribution:** The **concept, architecture, and Challenge Advisor materials** are **independent work by Karla Reyes, AI Engineer @ Flow Miami**. Flow is listed as the affiliated org on the BTT submission only; **this project is hosted by the Challenge Advisor alone**. See **[ATTRIBUTION.md](ATTRIBUTION.md)**.
 
 ---
 

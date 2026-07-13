@@ -1,6 +1,6 @@
 # Stakeholders & Value Proposition
 
-> **Note:** See [ATTRIBUTION.md](ATTRIBUTION.md). This project concept is **independent work by Challenge Advisor Karla Reyes**. Flow appears as the BTT affiliated org but **is not hosting or sponsoring** this build. “Operator” examples below are **illustrative**, not a Flow corporate initiative.
+> **Note:** See [ATTRIBUTION.md](ATTRIBUTION.md). This project concept is **independent work by Challenge Advisor Karla Reyes, AI Engineer @ Flow Miami**. **Hosted by CA alone.** Flow appears as the BTT affiliated org only. “Operator” examples below are **illustrative**, not a Flow corporate initiative.
 
 This project is a **recommendation / personalization engine** connected to an **LLM via MCP**.
 
@@ -16,7 +16,7 @@ This project is a **recommendation / personalization engine** connected to an **
 | **PE investors** | Equity capital | Stronger occupancy + retention → better NOI narrative → confidence in the asset |
 | **Lenders** | Debt capital | Predictable cash flow from stable occupancy and renewals → lower perceived risk |
 | **Student team** | Builders | Portfolio artifact: rec engine + MCP + LLM + eval framework |
-| **Challenge Advisor** | Karla Reyes (independent concept + CA setup) | BTT brief, data, architecture, eval for student team |
+| **Challenge Advisor** | Karla Reyes, AI Engineer @ Flow Miami | BTT brief, data, architecture, eval for student team |
 
 ---
 
