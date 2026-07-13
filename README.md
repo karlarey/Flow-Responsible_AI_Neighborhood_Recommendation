@@ -8,13 +8,15 @@
 
 ## The idea, in plain terms
 
-Moving to Miami is exciting — but finding the **right neighborhood** and **right living setup** is hard. Do you want your own place, or co-living with roommates so you're not alone in a new city?
+Moving to Miami is exciting — but you have to answer two questions: **where** do you want to live, and **what kind of home** do you want?
 
-This project builds a recommender that helps newcomers:
+| Housing type | Plain English |
+|--------------|---------------|
+| **Co-living** | Roommates or shared housing — you're new and don't want to live alone |
+| **Solo apartment** | Your own unit in a building — studio or 1BR, your own lease |
+| **Single-family home** | A house — more space, yard, quieter suburban blocks |
 
-1. **Localize** to the best Miami neighborhoods for them
-2. Choose a **living style** — **solo apartment** or **co-living / shared housing**
-3. Get **3–5 tailored suggestions** — starting with **Wynwood**, **Downtown Miami**, and **Brickell**
+This recommender helps newcomers get **3–5 neighborhood matches** based on budget, housing type, and lifestyle — with urban examples in **Wynwood**, **Downtown**, and **Brickell**, and single-family examples in **Kendall**, **Coral Gables**, and **Pinecrest**.
 
 We use public data, machine learning, and a responsible AI assistant that answers from real tool outputs — not made-up listings.
 
@@ -26,19 +28,27 @@ We use public data, machine learning, and a responsible AI assistant that answer
 
 | Step | What happens |
 |------|----------------|
-| 1 | User picks **budget**, **living style** (solo or co-living), and **priorities** (transit, social, quiet, pets, walkable). |
-| 2 | A **recommender model** ranks ZIP codes — with strong starter examples in **Wynwood**, **Downtown**, and **Brickell**. |
+| 1 | User picks **budget**, **housing type** (co-living, solo apartment, or single-family), and **priorities**. |
+| 2 | Recommender ranks ZIP codes using `co_living_friendly` and `single_family_friendly` scores. |
 | 3 | **NLP** pulls themes from reviews (including co-living and social life). |
 | 4 | An **MCP server** gives the AI agent access to your data and recommender. |
 | 5 | The **agent** answers only from those tools — no fake apartments or invented rent. |
 
-### Anchor neighborhoods to demo
+### Urban anchors (co-living + solo apartment)
 
-| Area | ZIP | Good for solo if… | Good for co-living if… |
-|------|-----|-------------------|------------------------|
-| **Wynwood** | 33127 | You want creative, walkable, social | You want roommates and community when new |
-| **Downtown Miami** | 33128 | You want central transit and your own unit | You want shared housing near work |
-| **Brickell** | 33130 | You want a high-rise and Metrorail | You want roommate-friendly towers |
+| Area | ZIP | Solo apartment | Co-living |
+|------|-----|----------------|-----------|
+| **Wynwood** | 33127 | Creative studio/1BR | Shared lofts, roommates |
+| **Downtown Miami** | 33128 | Own unit, Metromover | Co-living near work |
+| **Brickell** | 33130 | High-rise solo lease | Roommate-friendly towers |
+
+### Single-family anchors (house, not tower)
+
+| Area | ZIP | Why |
+|------|-----|-----|
+| **Kendall** | 33186 | Suburban, detached homes |
+| **Coral Gables** | 33134 | Tree-lined, residential |
+| **Pinecrest** | 33156 | Quiet, house-focused |
 
 Full details: [Challenge-Project-Overview.md](Challenge-Project-Overview.md)
 
@@ -88,9 +98,9 @@ Open the [`data/`](data/) folder. Here's what each file is:
 | File | What it is |
 |------|------------|
 | `miami_dade_public_features.csv` | **Real public data** — rent, population, migration by ZIP |
-| `area_features.csv` | **Starter file for the model** — includes `co_living_friendly`; see **Wynwood, Downtown, Brickell** |
-| `crowd_text_snippets.csv` | **Sample review text** — includes co-living themes |
-| `area_options.csv` | **Fake demo cards** — `living_type`: `solo` or `co_living` — **NOT REAL LISTINGS** |
+| `area_features.csv` | **Model starter** — `co_living_friendly` + `single_family_friendly` scores |
+| `crowd_text_snippets.csv` | **Sample reviews** — co_living, single_family, transit, social |
+| `area_options.csv` | **Demo cards** — `co_living`, `solo_apartment`, or `single_family` |
 
 More detail: [`data/README.md`](data/README.md) and [`data_dictionary.md`](data_dictionary.md).
 

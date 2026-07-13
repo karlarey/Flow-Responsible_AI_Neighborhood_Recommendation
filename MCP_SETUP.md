@@ -13,7 +13,7 @@ Think of it like a waiter who can only bring items from the kitchen menu. If it'
 | `schema` | Nothing | Column names and notes about each dataset |
 | `area_stats` | A ZIP code (optional) | Public stats for that ZIP, or all ZIPs if blank |
 | `crowd_themes` | A ZIP code | Review theme snippets (transit, quiet, social, etc.) |
-| `recommend` | Budget, preference tags, living style (`solo` or `co_living`), result count (`k`) | Top neighborhood matches |
+| `recommend` | Budget, preference tags, housing type (`co_living`, `solo_apartment`, `single_family`), result count (`k`) | Top neighborhood matches |
 | `ethics` | Nothing | Rules for fair, responsible use |
 
 ---

@@ -22,26 +22,37 @@ Housing search in a new city is overwhelming. Listings are scattered, data is me
 
 ### What you'll build
 
-A **neighborhood + living-style recommender** for Miami newcomers. Users pick **how they want to live**, not just where:
+A **neighborhood + housing-type recommender** for Miami newcomers. Users pick **how they want to live**, not just where:
 
-| Living style | Who it's for |
-|--------------|--------------|
-| **Solo** | Your own apartment or studio — privacy, your own lease |
-| **Co-living** | Shared housing, roommates, or co-living spaces — community when you're new and don't want to live alone |
+| Housing type | What it means | Example areas |
+|--------------|---------------|---------------|
+| **Co-living** | Shared housing, roommates, co-living spaces — good when you're new and don't want to live alone | Wynwood, Downtown, Brickell |
+| **Solo apartment** | Your own unit in a building (studio/1BR+) — privacy, your own lease | Wynwood, Downtown, Brickell |
+| **Single-family home** | Detached house with more space — yards, quieter streets, suburban feel | Kendall, Coral Gables, Pinecrest |
 
-**Anchor neighborhoods** (use these to test and demo clearly):
+> **Important:** These are **housing types the user chooses** — not guesses about whether someone has kids or is married. Never infer family status from demographics.
 
-| Neighborhood | ZIP | Solo vibe | Co-living vibe |
-|--------------|-----|-----------|----------------|
-| **Wynwood** | 33127 | Creative, walkable, social | Shared lofts, roommate-friendly |
-| **Downtown Miami** | 33128 | Central, transit, own unit | Co-living rooms near work |
-| **Brickell** | 33130 | High-rise solo lease | Roommate-friendly towers, Metrorail |
+**Urban anchors** (co-living + solo apartment demos):
+
+| Neighborhood | ZIP | Solo apartment | Co-living |
+|--------------|-----|----------------|-----------|
+| **Wynwood** | 33127 | Creative, walkable studio/1BR | Shared lofts, roommate-friendly |
+| **Downtown Miami** | 33128 | Own unit near Metromover | Co-living rooms near work |
+| **Brickell** | 33130 | High-rise solo lease | Roommate-friendly towers |
+
+**Single-family anchors** (when user wants a house, not a tower):
+
+| Neighborhood | ZIP | Why it fits |
+|--------------|-----|-------------|
+| **Kendall** | 33186 | Suburban streets, more detached housing |
+| **Coral Gables** | 33134 | Tree-lined blocks, residential houses |
+| **Pinecrest** | 33156 | Quiet, family-style housing stock |
 
 Your full system will:
 
-1. Take **budget**, **living style** (solo or co-living), and **lifestyle preferences**
+1. Take **budget**, **housing type** (`co_living`, `solo_apartment`, or `single_family`), and **lifestyle preferences**
 2. Recommend **3–5 Miami-Dade ZIP codes** using ML similarity matching
-3. Surface **review themes** (transit, quiet, social, **co_living**, etc.) from crowd text
+3. Surface **review themes** (transit, quiet, social, co_living, single_family, etc.) from crowd text
 4. Connect an **AI agent** to your work through an **MCP server** so it only answers from your tools
 5. **Label synthetic demo content clearly** and refuse harmful requests
 
@@ -93,9 +104,9 @@ Don't wait until November to check these. Use them like a GPS:
 |------|---------------|---------------|
 | `miami_dade_public_features.csv` | **Real** | Actual public stats by ZIP — rent, population, migration |
 | `miami_dade_zctas.txt` | **Real** | List of Miami-Dade ZIP codes |
-| `area_features.csv` | **Mixed starter** | ZIP-level scores including `co_living_friendly`; anchor rows for **Wynwood, Downtown, Brickell** |
-| `crowd_text_snippets.csv` | **Demo** | Sample review text including **co-living** themes; replace with real reviews in October |
-| `area_options.csv` | **Synthetic only** | Demo cards with `living_type` (`solo` or `co_living`) — **NOT REAL LISTINGS** |
+| `area_features.csv` | **Mixed starter** | Includes `co_living_friendly` and `single_family_friendly`; urban anchors **Wynwood, Downtown, Brickell**; suburban anchors **Kendall, Coral Gables, Pinecrest** |
+| `crowd_text_snippets.csv` | **Demo** | Themes for co_living, single_family, transit, social, etc. |
+| `area_options.csv` | **Synthetic only** | `living_type`: `co_living`, `solo_apartment`, or `single_family` — **NOT REAL LISTINGS** |
 
 **The plan:** Start with this mix so you can build fast. Over the semester, replace demo pieces with stronger public sources. The recommender should lean more on real data as you go.
 
@@ -138,7 +149,7 @@ Your team will build an MCP server with **five tools**:
 | `schema` | "Here are the columns in our dataset." |
 | `area_stats` | "Here are the stats for this ZIP (or all ZIPs)." |
 | `crowd_themes` | "Here's what people say about transit, quiet, etc. in this ZIP." |
-| `recommend` | "Given this budget, living style (solo/co-living), and preferences, here are the top areas." |
+| `recommend` | "Given budget, housing type, and preferences, here are the top areas." |
 | `ethics` | "Here's what this tool is allowed and not allowed to do." |
 
 **Why it matters:** If the agent can only speak through these tools, it's much harder for it to invent a $1,200 Brickell apartment that doesn't exist. That's your **tool grounding rate**.

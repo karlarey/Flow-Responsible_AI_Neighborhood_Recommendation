@@ -44,9 +44,11 @@ Plain-text list of Miami-Dade ZIP codes used to scope the project.
 | walkable | float 0-1 | Walkability proxy |
 | migration_score | float 0-1 | In-migration activity proxy (derived) |
 | median_rent_usd | int | Rent index from public sources |
-| co_living_friendly | float 0-1 | How well the area fits co-living / shared housing (higher for Wynwood, Downtown, Brickell) |
+| co_living_friendly | float 0-1 | Fit for co-living / shared housing (higher for Wynwood, Downtown, Brickell) |
+| single_family_friendly | float 0-1 | Fit for detached single-family homes (higher for Kendall, Coral Gables, Pinecrest) |
 
-**Anchor rows:** Wynwood (`33127`), Downtown (`33128`), Brickell (`33130`).
+**Urban anchor rows:** Wynwood (`33127`), Downtown (`33128`), Brickell (`33130`).  
+**Single-family anchor rows:** Kendall (`33186`), Coral Gables (`33134`), Pinecrest (`33156`).
 
 ## area_options.csv
 
@@ -57,7 +59,7 @@ Plain-text list of Miami-Dade ZIP codes used to scope the project.
 | option_id | string | Synthetic ID (SYN-*) |
 | zip | string | Join key to area_features |
 | rent_band | string | Illustrative band |
-| living_type | string | `solo` or `co_living` |
+| living_type | string | `co_living`, `solo_apartment`, or `single_family` |
 | tags | string | Comma-separated tags (includes `co_living` when relevant) |
 | summary | string | Short area + living-style description |
 | disclaimer | string | Must display NOT A REAL LISTING |
@@ -71,7 +73,7 @@ Demo snippets mimicking public review/forum text for NLP themes. Replace with re
 | snippet_id | string | Row ID |
 | zip | string | Associated ZIP |
 | source | string | e.g. kaggle_reviews (document real source when replaced) |
-| theme | string | transit, social, quiet, co_living, etc. |
+| theme | string | transit, social, quiet, co_living, single_family, etc. |
 | text | string | Snippet text (aggregate use only) |
 
 ## Limitations

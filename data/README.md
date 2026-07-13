@@ -1,29 +1,38 @@
 # Starter Dataset
 
-Files in this folder get you started on day one. See [`data_dictionary.md`](../data_dictionary.md) for column-by-column details.
+See [`data_dictionary.md`](../data_dictionary.md) for full column details.
 
-## Anchor neighborhoods
+## Three housing types
 
-Use these three areas to test **solo vs. co-living** recommendations:
+| Type | What it means |
+|------|---------------|
+| **co_living** | Shared housing / roommates — for newcomers who don't want to live alone |
+| **solo_apartment** | Your own unit in a building (studio, 1BR, etc.) |
+| **single_family** | Detached house — more space, yard, suburban feel |
 
-| Neighborhood | ZIP | Try co-living when… | Try solo when… |
-|--------------|-----|---------------------|----------------|
-| **Wynwood** | 33127 | New to Miami, want community and roommates | Want your own creative, walkable spot |
-| **Downtown Miami** | 33128 | Want shared housing near transit and work | Want your own unit in the urban core |
-| **Brickell** | 33130 | Young professional, roommate-friendly tower | Solo high-rise, Metrorail access |
+Users **choose** their housing type. The model should never guess family status from demographics.
 
-## What's in each file
+## Urban anchors (co-living + solo apartment)
 
-| File | What it is |
-|------|------------|
-| `miami_dade_public_features.csv` | **Real public data** — rent, population, migration by ZIP |
-| `miami_dade_zctas.txt` | **ZIP code list** for Miami-Dade |
-| `area_features.csv` | **Model starter** — includes `co_living_friendly` score per ZIP |
-| `crowd_text_snippets.csv` | **Sample reviews** — includes `co_living` themes |
-| `area_options.csv` | **Fake demo cards** — `living_type` = `solo` or `co_living` — **NOT REAL LISTINGS** |
+| Neighborhood | ZIP |
+|--------------|-----|
+| Wynwood | 33127 |
+| Downtown Miami | 33128 |
+| Brickell | 33130 |
 
-## Important reminders
+## Single-family anchors
 
-- No personal info — area-level aggregates only
-- Co-living cards are **synthetic demos**, not real roommate listings
-- Don't use outputs for actual leasing decisions
+| Neighborhood | ZIP |
+|--------------|-----|
+| Kendall | 33186 |
+| Coral Gables | 33134 |
+| Pinecrest | 33156 |
+
+## Files
+
+| File | What's inside |
+|------|-----------------|
+| `miami_dade_public_features.csv` | Real public data by ZIP |
+| `area_features.csv` | Model features + `co_living_friendly` + `single_family_friendly` |
+| `crowd_text_snippets.csv` | Sample reviews (co_living, single_family, etc.) |
+| `area_options.csv` | Demo cards by housing type — **NOT REAL LISTINGS** |
