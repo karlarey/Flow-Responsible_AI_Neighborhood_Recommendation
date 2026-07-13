@@ -19,7 +19,8 @@ To start adding project tasks aligned with your Challenge Project's monthly mile
 | [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | Project details and guidance from your Challenge Advisor | Challenge Advisor
 | [STAKEHOLDERS.md](STAKEHOLDERS.md) | Stakeholders and value proposition (Flow, PE, lenders) | Challenge Advisor
 | [ARCHITECTURE.md](ARCHITECTURE.md) | System architecture blueprint | Challenge Advisor
-| [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md) | How to evaluate rec engine, MCP routing, and LLM grounding | Challenge Advisor
+| [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md) | How to evaluate rec engine, MCP routing, and LLM grounding |
+| [RESOURCES.md](RESOURCES.md) | Curated online resources (data, ML, MCP, responsible AI) |
 | [eval](eval) | Starter test cases for evaluation | Challenge Advisor
 | [data](data) | Where project dataset files get stored (e.g., `.csv`, `.json`, `.parquet`, `.zip`) | Challenge Advisor
 | [README.md](README.md) | Where your team will document your project work; this will become the core of your AI Studio portfolio artifact | Fellows

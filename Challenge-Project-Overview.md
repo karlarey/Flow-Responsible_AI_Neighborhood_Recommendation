@@ -194,21 +194,14 @@ Your team will build an MCP server with **five tools**:
 
 ---
 
-## 📚 Helpful links
+## 📚 Online resources
 
-**Background:**
-- [Census ACS](https://www.census.gov/programs-surveys/acs)
-- [Zillow Research data](https://www.zillow.com/research/data/)
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+Full curated list: **[RESOURCES.md](RESOURCES.md)** — Miami data, ML/rec-sys, NLP, MCP/LLM, responsible AI, proptech context, and collaboration tools.
 
-**Technical:**
-- [scikit-learn cosine similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
-- [Streamlit](https://docs.streamlit.io/)
-- [MCP docs](https://modelcontextprotocol.io/)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/quickstart)
-
-**Code to study:**
-- [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer)
+**Start here:**
+- [STAKEHOLDERS.md](STAKEHOLDERS.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md)
+- [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer) (reference code)
+- [Census ACS](https://www.census.gov/programs-surveys/acs) · [Zillow Research](https://www.zillow.com/research/data/) · [MCP docs](https://modelcontextprotocol.io/)
 
 ---
 

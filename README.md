@@ -57,6 +57,7 @@ Full details: [Challenge-Project-Overview.md](Challenge-Project-Overview.md)
 | [STAKEHOLDERS.md](STAKEHOLDERS.md) | Who benefits and why (Flow, residents, PE/lenders) |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Rec engine → MCP → LLM blueprint |
 | [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md) | Metrics to prove the stack works |
+| [RESOURCES.md](RESOURCES.md) | Curated online resources |
 | [eval/](eval/) | Starter test profiles and routing prompts |
 | [data/](data/) | Starter dataset |
 | [data_dictionary.md](data_dictionary.md) | Column definitions |
