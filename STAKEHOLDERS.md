@@ -1,6 +1,8 @@
 # Stakeholders & Value Proposition
 
-This project is a **recommendation / personalization engine** connected to an **LLM via MCP**. Each stakeholder gets different value — but all depend on the same thing: **accurate matches, grounded answers, and measurable quality**.
+> **Note:** See [ATTRIBUTION.md](ATTRIBUTION.md). This project concept is **independent work by Challenge Advisor Karla Reyes**. Flow appears as the BTT affiliated org but **is not hosting or sponsoring** this build. “Operator” examples below are **illustrative**, not a Flow corporate initiative.
+
+This project is a **recommendation / personalization engine** connected to an **LLM via MCP**.
 
 ---
 
@@ -9,12 +11,12 @@ This project is a **recommendation / personalization engine** connected to an **
 | Stakeholder | Role | Value proposition |
 |-------------|------|-------------------|
 | **Prospective residents** | End user | Find the right Miami neighborhood and living setup faster — without fake listings or AI guesswork |
-| **Flow (operations)** | Host company / deployer | **Higher occupancy** (faster lease-up) and **higher renewals** (better initial fit → residents stay) |
-| **Flow (capital markets)** | Reports to PE & lenders | Data-backed story: responsible AI improves leasing ops and portfolio performance |
+| **Residential operator** *(illustrative)* | Example deployer | **Higher occupancy** and **renewals** if match quality improves |
+| **Operator capital markets** *(illustrative)* | Reports to PE & lenders | Data-backed responsible AI story for portfolio performance |
 | **PE investors** | Equity capital | Stronger occupancy + retention → better NOI narrative → confidence in the asset |
 | **Lenders** | Debt capital | Predictable cash flow from stable occupancy and renewals → lower perceived risk |
 | **Student team** | Builders | Portfolio artifact: rec engine + MCP + LLM + eval framework |
-| **Challenge Advisor** | Flow / Karla Reyes | Production-ready prototype path for Flow's leasing experience |
+| **Challenge Advisor** | Karla Reyes (independent concept + CA setup) | BTT brief, data, architecture, eval for student team |
 
 ---
 
@@ -34,11 +36,11 @@ This project is a **recommendation / personalization engine** connected to an **
 
 ---
 
-### 2. Flow — operations & leasing
+### 2. Residential operator *(illustrative use case)*
 
 **Pain:** Slow or mismatched searches → lost prospects (vacancy) and unhappy residents who leave at renewal.
 
-**Value:**
+**Value (example):**
 
 | Metric | How this system helps |
 |--------|------------------------|
@@ -51,31 +53,23 @@ This project is a **recommendation / personalization engine** connected to an **
 
 ---
 
-### 3. PE investors
+### 3. PE investors *(illustrative)*
 
-**Pain:** Need proof that Flow operates the portfolio efficiently and grows revenue predictably.
+**Pain:** Need proof that an operator runs the portfolio efficiently.
 
-**Value:**
-- **Differentiation:** Flow uses measurable AI personalization — not just marketing
-- **Operational alpha:** Faster lease-up and retention improve same-store performance
-- **Due diligence story:** Eval framework (Precision@k, grounding rate) shows rigor, not hype
+**Value (example):**
+- Differentiation via measurable AI personalization — if deployed
+- Operational metrics story for due diligence
 
-**They don't use the app.** They evaluate **occupancy %, renewal rates, NOI trends** — this system is a lever to improve those numbers.
-
-**Success looks like:** "Flow has a data-driven leasing engine that supports portfolio growth."
+**They don't use the app.** They evaluate occupancy, renewal rates, and NOI.
 
 ---
 
-### 4. Lenders
+### 4. Lenders *(illustrative)*
 
-**Pain:** Underwriting depends on stable occupancy and predictable rental income.
+**Pain:** Underwriting depends on stable occupancy and rental income.
 
-**Value:**
-- Lower vacancy risk when prospects match communities faster
-- Retention supports debt service coverage
-- Responsible AI reduces fair-housing / reputational risk vs. reckless automation
-
-**Success looks like:** Consistent occupancy and renewal metrics in Flow's reporting.
+**Value (example):** Lower vacancy risk when prospects match communities faster.
 
 ---
 
@@ -95,10 +89,10 @@ If the architecture is wrong, stakeholders lose trust:
 
 | Failure | Who gets hurt |
 |---------|---------------|
-| Bad recommendations | Residents + Flow occupancy |
+| Bad recommendations | Residents + operator occupancy *(if deployed)* |
 | LLM invents listings | Everyone — legal/reputation risk |
 | Wrong tool routing | Broken user experience |
-| No refusals on bad requests | Flow + fair housing exposure |
+| No refusals on bad requests | Fair housing exposure for any deployer |
 
 That's why we include **[EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md)** — students must **measure** accuracy at every layer, not just demo a chatbot.
 
@@ -107,7 +101,7 @@ That's why we include **[EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md)** — students mu
 ## One-line pitch
 
 > **For residents:** the right Miami neighborhood, explained clearly.  
-> **For Flow:** occupancy and renewals through better matches.  
-> **For PE/lenders:** stronger portfolio metrics backed by responsible, measurable AI.
+> **For operators *(example)*:** better matches could support occupancy and renewals.  
+> **For PE/lenders *(example)*:** portfolio metrics backed by measurable, responsible AI.
 
-See also: [ARCHITECTURE.md](ARCHITECTURE.md) | [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md)
+See also: [ATTRIBUTION.md](ATTRIBUTION.md) · [ARCHITECTURE.md](ARCHITECTURE.md) · [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md)

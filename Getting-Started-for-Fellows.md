@@ -16,8 +16,9 @@ To start adding project tasks aligned with your Challenge Project's monthly mile
 
 | File/Folder | What Is It? | Creator |
 |-------------|-------------|---------|
+| [ATTRIBUTION.md](ATTRIBUTION.md) | Ownership, independence, Flow affiliation (read first) | Challenge Advisor
 | [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | Project details and guidance from your Challenge Advisor | Challenge Advisor
-| [STAKEHOLDERS.md](STAKEHOLDERS.md) | Stakeholders and value proposition (Flow, PE, lenders) | Challenge Advisor
+| [STAKEHOLDERS.md](STAKEHOLDERS.md) | Stakeholders and illustrative value proposition | Challenge Advisor
 | [ARCHITECTURE.md](ARCHITECTURE.md) | System architecture blueprint | Challenge Advisor
 | [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md) | How to evaluate rec engine, MCP routing, and LLM grounding |
 | [RESOURCES.md](RESOURCES.md) | Curated online resources (data, ML, MCP, responsible AI) |

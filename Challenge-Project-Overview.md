@@ -1,16 +1,18 @@
 # Responsible AI for Personalized Neighborhood Recommendations
 
-**Company / Org:** Flow  
+**Company / Org (BTT submission):** Flow  
 **Challenge Advisor:** Karla Reyes, k.reyes@outlook.com  
 **Program:** Break Through Tech AI Studio — Fall 2026
 
+> **Attribution:** The **concept, architecture, and Challenge Advisor materials** are **independent work by Karla Reyes**. Flow is listed as the affiliated org on the BTT submission; **Flow is not hosting or sponsoring this build** and did not originate this idea. See **[ATTRIBUTION.md](ATTRIBUTION.md)**.
+
 ---
 
-## 🏢 About Flow
+## 🏢 Illustrative context — residential operators (e.g. Flow)
 
-Flow is a residential operator where **occupancy** and **renewals (retention)** drive portfolio performance. When units lease faster and residents stay longer, Flow's operational metrics improve — and that strengthens the company's position with **PE investors and lenders**.
+*This section describes how a **residential operator could** use a system like the one students will build. It is **not** a Flow corporate product plan or an assigned Flow initiative.*
 
-### Why Flow would use this
+Many operators care about **occupancy** and **renewals (retention)**. A grounded recommender could help prospects find the right fit faster — an **example** business case for this architecture:
 
 | Business goal | What goes wrong today | How this project helps |
 |---------------|----------------------|-------------------------|
@@ -18,9 +20,9 @@ Flow is a residential operator where **occupancy** and **renewals (retention)** 
 | **Renewals / retention** | Bad initial match → unhappy residents → move out at renewal | Match newcomers to the **right area and living setup** upfront → higher satisfaction → **residents stay** |
 | **Investor & lender confidence** | Hard to show differentiated, data-driven leasing | Responsible AI rec engine + LLM → measurable match quality → **stronger ops story** for capital partners |
 
-**End users** are newcomers (e.g. moving from NYC with a co-leaser, wanting their own apartment in Wynwood, Downtown, or Brickell — not a co-living facility). **Flow** deploys the engine to improve lease-up and retention. **PE and lenders** don't use the app — they evaluate Flow on occupancy, renewal rates, and how well the portfolio is run.
+**End users** are newcomers (e.g. moving from NYC with a co-leaser, wanting their own apartment in Wynwood, Downtown, or Brickell — not a co-living facility). An operator **could** deploy an engine like this for lease-up and retention. **PE and lenders** (in this illustrative story) evaluate portfolio metrics — they are not app users.
 
-### What you're building for Flow
+### What students build (technical goal)
 
 A **recommendation / personalization engine** connected to an **LLM via MCP**:
 
@@ -40,7 +42,7 @@ Prospect preferences → Rec engine (rank ZIPs) → MCP tools → LLM (explain r
 
 ### The problem
 
-For newcomers, housing search in Miami is overwhelming — listings are scattered and AI tools often invent facts. For **Flow**, every slow or mismatched search risks **lost leases (occupancy)** and **early move-outs (retention)**. Your job is to build a **grounded personalization engine** that helps prospects find the right fit faster — and gives Flow a responsible AI story that supports relationships with **investors and lenders**.
+For newcomers, housing search in Miami is overwhelming — listings are scattered and AI tools often invent facts. In an **illustrative operator scenario**, slow or mismatched search can hurt lease-up and retention. Your job is to build a **grounded personalization engine** that helps people find the right fit — with measurable quality via [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md).
 
 ### What you'll build
 

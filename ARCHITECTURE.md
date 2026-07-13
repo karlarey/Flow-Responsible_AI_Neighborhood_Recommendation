@@ -75,13 +75,13 @@ Study (do not copy blindly): [Miami Newcomer Housing Explorer](https://github.co
 
 ---
 
-## Business link (Flow)
+## Business link *(illustrative operator scenario)*
 
 ```text
 Better rec match → faster lease (occupancy ↑) → happier resident → renewal (↑)
-                                                      ↓
-                                    Stronger story for PE / lenders
 ```
+
+Not a Flow corporate initiative — see [ATTRIBUTION.md](ATTRIBUTION.md).
 
 Stakeholder detail: [STAKEHOLDERS.md](STAKEHOLDERS.md)
 

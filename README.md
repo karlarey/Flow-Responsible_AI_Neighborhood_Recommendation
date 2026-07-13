@@ -1,8 +1,10 @@
 # Responsible AI for Personalized Neighborhood Recommendations
 
 **Break Through Tech AI Studio — Fall 2026**  
-**Host company:** Flow  
+**Affiliated org (BTT submission):** Flow  
 **Challenge Advisor:** Karla Reyes ([k.reyes@outlook.com](mailto:k.reyes@outlook.com))
+
+> **Independent project:** Concept and CA materials by **Karla Reyes** — not a Flow corporate product. Flow is not hosting this build. See **[ATTRIBUTION.md](ATTRIBUTION.md)**.
 
 ---
 
@@ -10,7 +12,7 @@
 
 **For newcomers:** You're moving to Miami — maybe from NYC — and need the **right neighborhood** and **living setup** (e.g. your own apartment with a **co-leaser** on the lease in Wynwood, Downtown, or Brickell — not a co-living facility).
 
-**For Flow:** A **recommendation engine + LLM** that improves **occupancy** (faster, better lease matches) and **renewals** (residents who fit their area stay longer). Stronger operations look better to **PE investors and lenders**.
+**Illustrative business case:** A residential operator *could* use a **recommendation engine + LLM** to improve lease-up and retention. That scenario motivates the eval metrics — it is **not** a Flow-assigned product roadmap.
 
 This project builds that engine: match users to **3–5 neighborhoods** from budget, household, housing preference, and lifestyle — with an MCP-backed LLM that explains results without inventing listings.
 
@@ -20,8 +22,8 @@ This project builds that engine: match users to **3–5 neighborhoods** from bud
 
 ## Example user stories
 
-| Who | What they want | Business impact for Flow |
-|-----|----------------|--------------------------|
+| Who | What they want | Illustrative operator impact |
+|-----|----------------|------------------------------|
 | **Couple from NYC** | Own apartment with a co-leaser | Faster lease decision → **occupancy** |
 | **Solo mover** | Own studio/1BR, no roommates | Better initial fit → **renewal** likelihood |
 | **Solo, wants community** | Co-living (optional path) | Fill appropriate inventory → **occupancy** |
@@ -54,7 +56,8 @@ Full details: [Challenge-Project-Overview.md](Challenge-Project-Overview.md)
 | File or folder | What's inside |
 |----------------|---------------|
 | [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | Full project brief |
-| [STAKEHOLDERS.md](STAKEHOLDERS.md) | Who benefits and why (Flow, residents, PE/lenders) |
+| [ATTRIBUTION.md](ATTRIBUTION.md) | **Read first** — ownership & independence |
+| [STAKEHOLDERS.md](STAKEHOLDERS.md) | Stakeholders & illustrative value prop |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Rec engine → MCP → LLM blueprint |
 | [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md) | Metrics to prove the stack works |
 | [RESOURCES.md](RESOURCES.md) | Curated online resources |
