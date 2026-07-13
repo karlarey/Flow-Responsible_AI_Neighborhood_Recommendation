@@ -1,41 +1,3 @@
----
-
-> ## Challenge Advisor: Update & Finalize Your Project Overview
->
-> > 💡 **These grey text instructions are just for you, the team's Challenge Advisor; please delete them once you have completed the steps below.**
->
-> We've pre-populated this Challenge Project Overview page — which is what will be shared with your Break Through Tech student team in August — using the details from your submission form. You should have received an email inviting you to join this repo as a Collaborator, enabling you to add files and make edits.
-> 
-> In order for your project to be finalized and assigned to a team, please:
-> 1. **Review all sections below** and update or expand any content as needed, making sure to address the SME Feedback in the section immediately below. Look for square brackets to find the places below that require additional inputs from you (e.g., "About [Company / Org Name]").
-> 2. **Add your dataset** to the [data folder](data) in this repo.
-> 3. **Close the Issue assigned to you in this repo** to let us know that you have made your edits and the overview page is ready for final review. You can do this by going to the _Issues_ tab in the top left section of the menu above, add a comment that says "CA review complete", and click the button to Close the Issue. 
->
-> If you're unfamiliar with how to edit a page like this in GitHub, check out [this tutorial](https://ubc-lib-geo.github.io/gis-workshop-waml-template/content/handson/edit-readme.html) for a quick overview (start with step 2 and only edit this page), and [this guide](https://ubc-lib-geo.github.io/gis-workshop-waml-template/content/markdown.html) on how to use Markdown to compose text.
->
->
-> ❌ Remember that this is a public repo. Do NOT include: Proprietary data, PII, API keys, credentials, or anything confidential.
-
----
-
-## 📋 BTT Internal Evaluation Notes
-*(This section is for BTT staff only — remove before sharing with students)*
-
-| Check | Status | Notes |
-|-------|--------|-------|
-| Python Compatibility | 🟢| The tech stack is centered around Python, ensuring compatibility with the fellows' skill set in ML foundations. |
-| Data Readiness | 🟢| The data size is under 1GB, indicating it is manageable and presumably clean enough for use within a semester without extensive preprocessing. |
-| Resource Check | 🟢| Only requires the Google Colab free tier, which is accessible to all students and poses no additional hurdles. |
-
-**Student Fit Score:** 8/10  
-**Technical Depth Score:** 7/10  
-**Overall Recommendation:** REVISE
-
-**Advisor Feedback Draft:**
-The project effectively leverages NLP and recommendation systems to provide individual experiences for newcomers in Miami, addressing a real pain point. However, to ensure the project meets its goals, focus on balancing the use of synthetic profiles with real-world data for better accuracy. Additionally, clarify how the measures of success will guide iterative improvements in the model. Consider these adjustments to maximize impact.
-
----
-
 # Responsible AI for personalized recommendations
 
 **Company / Org:** Flow  
@@ -46,17 +8,40 @@ The project effectively leverages NLP and recommendation systems to provide indi
 
 ## 🏢 About Flow
 
-Flow specializes in delivering innovative solutions for personalized housing recommendations, focused on enhancing the experience for newcomers in the Miami area through advanced AI technologies.
+Flow focuses on personalized housing discovery for people moving to Miami. This challenge asks your team to build a **responsible AI recommendation experience** that helps newcomers compare neighborhoods and receive 3–5 area options — without unsafe steering, demographic profiling, or presenting synthetic data as live listings.
 
 ---
 
 ## 🎯 The Challenge
 
 ### Project Summary
-In this project, you will use public Miami housing/migration data, crowd review text, and synthetic option profiles and NLP plus recommendation ML (similarity-based personalization) and an MCP-backed AI agent to deliver 3–5 personalized area recommendations for newcomers. This will help address slow, unstructured housing search for people moving to Miami without unsafe steering or real-time listing scraping.
+
+People relocating to Miami often face a slow, unstructured housing search. In this project, you will combine **public Miami-Dade housing and migration data**, **crowd review text**, and **clearly labeled synthetic option profiles** with NLP, similarity-based recommendation ML, and an MCP-backed AI agent to deliver personalized area recommendations.
+
+Your system should help newcomers explore neighborhoods based on **user-selected preferences** (budget, transit, social life, quiet, pets, walkability) while following responsible AI guardrails: area-level exploration only, tool-grounded answers, and explicit labeling of synthetic content.
 
 ### Success Criteria
-Ranking quality (Precision@3 and Precision@5), Match quality (Mean cosine similarity), NLP theme coverage, tool grounding (answers must cite tool outputs only), and refusal rate for prohibited requests.
+
+| Metric | What it measures | Target direction |
+|--------|------------------|------------------|
+| **Precision@3 / Precision@5** | Do top-ranked ZIPs match held-out preference labels or advisor-defined relevance sets? | Higher is better |
+| **Mean cosine similarity** | How well user preference vectors align with recommended area feature vectors | Higher is better |
+| **NLP theme coverage** | Do crowd-text themes surface for recommended ZIPs across priority categories? | Broader coverage is better |
+| **Tool grounding rate** | Do agent answers cite MCP/tool outputs only (no invented stats)? | Higher is better |
+| **Refusal rate** | Does the agent appropriately refuse prohibited requests (tenant scoring, demographic steering, fake listings)? | Appropriate refusals expected |
+
+### How metrics drive iteration
+
+Use metrics as a **feedback loop**, not just a final report:
+
+| Phase | When | If metric is weak | Next action |
+|-------|------|-------------------|-------------|
+| **Baseline** | September | — | Ship a simple cosine-similarity recommender on starter data; log Precision@3 and mean cosine similarity |
+| **Data upgrade** | Early October | Low similarity or poor Precision@3 | Replace demo proxies with stronger public features (Census ACS, Zillow Research indices); re-normalize features |
+| **Model tuning** | Mid October | Rankings feel generic or misaligned | Adjust feature weights, add budget filters, test alternative similarity metrics |
+| **NLP + agent** | Late October | Low theme coverage or poor grounding | Improve theme extraction; enforce tool-only responses in the agent |
+| **Responsible AI** | November | Low refusal rate on edge cases | Expand ethics prompts, blocked-request tests, and UI disclaimers |
+| **Final eval** | November | — | Compare baseline vs. final on all metrics; document trade-offs in README |
 
 ### Project Milestones
 
@@ -64,9 +49,9 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 
 | Month | Milestone | Key Activities |
 |-------|-----------|----------------|
-| **September** | Data Understanding | Explore dataset, handle missing values, document findings |
-| **October** | Model Development | Train baseline model, experiment with approaches, iterate |
-| **November** | Evaluation & Presentation | Finalize model, prepare presentation, document results |
+| **September** | Data Understanding | Explore starter dataset; document real vs. synthetic files; handle missing values; establish baseline Precision@3 |
+| **October** | Model Development | Upgrade public features; tune recommender; add NLP themes; iterate when metrics plateau |
+| **November** | Evaluation & Presentation | Finalize model and agent guardrails; run full metric suite; prepare presentation and portfolio README |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
 
@@ -74,15 +59,37 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 
 ## 📊 Dataset
 
-**Name and Source:** Public snapshot datasets for Miami-Dade (census/ACS, rent benchmarks, migration indicators)  
-**Format:** CSV/TSV  
-**Size:** under 1gb  
-**Location:** [Link to dataset or instructions for accessing it]
+**Name and Source:** Miami-Dade public snapshot data (Census ACS, migration indicators, Zillow Research-style indices) plus starter demo files for NLP and UI  
+**Format:** CSV / TSV  
+**Size:** Under 1 GB  
+**Location:** [`data/`](data) folder in this repository
+
+### Data strategy: real public data vs. synthetic demo data
+
+This project intentionally mixes **real public aggregates** with **synthetic demo content**. Students should expand the real-data share over the semester.
+
+| File | Type | Role |
+|------|------|------|
+| `miami_dade_public_features.csv` | **Real public aggregates** | Census ACS + migration + Zillow Research-style indices at ZIP level |
+| `miami_dade_zctas.txt` | **Real reference** | Miami-Dade ZIP code list |
+| `area_features.csv` | **Blended starter** | ZIP-level preference scores joined to public rent/migration fields; some neighborhood labels are illustrative |
+| `crowd_text_snippets.csv` | **Demo text (replaceable)** | Public-style review snippets for NLP theme extraction; swap with real Kaggle/community text later |
+| `area_options.csv` | **Synthetic only** | UI option cards labeled `SYN-*` — **NOT REAL LISTINGS** |
+
+**Why this balance?** Real public data anchors recommendations in actual Miami-Dade conditions (rent, migration, population). Synthetic profiles let the team build and test the UI and agent flow immediately without scraping live listings or handling PII. As accuracy improves, shift weight toward public sources and verified review text.
 
 ### Key Details
-- Public snapshot datasets for Miami-Dade (census/ACS, rent benchmarks, migration indicators), synthetic area profiles, and public apartment/community text. Data is stored in CSV/TSV format and includes numerical, categorical, text, and time series data.
-- [Any known limitations or preprocessing needed]
-- [Link to data dictionary or documentation, if available]
+
+- All data is **aggregate and snapshot-based** — no live listing scrapes, tenant records, or individual-level PII.
+- Census sentinel values (e.g., `-666666666`) indicate missing or suppressed estimates; document how you handle these in preprocessing.
+- Synthetic listing cards must always display their disclaimer in any UI or demo.
+- See [`data_dictionary.md`](data_dictionary.md) for column definitions and limitations.
+
+### Recommended data upgrades (October)
+
+- Refresh Census ACS pulls via [Census API](https://www.census.gov/data/developers/data-sets.html)
+- Add Zillow Research rent/home-value indices from [Zillow Research data](https://www.zillow.com/research/data/)
+- Replace demo crowd text with filtered Miami/FL review corpora (e.g., [Kaggle apartment reviews](https://www.kaggle.com/datasets/teejmahis/apartment-reviews-on-googlemaps))
 
 ---
 
@@ -90,40 +97,39 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 
 **ML Problem Type:** Recommendation ML (similarity-based personalization)
 
-**Recommended Libraries:**
-- NLP
-- Recommendation ML (similarity-based personalization)
-- MCP-backed AI agent
-- Python
-- Gemini agent
-- Streamlit
-- Docker
+**Recommended stack:**
+- **Python** — core language
+- **pandas / scikit-learn** — feature engineering and cosine-similarity ranking
+- **NLP** — theme extraction from crowd review text
+- **Streamlit** — demo UI for newcomers
+- **Gemini + MCP** — tool-grounded AI agent (optional API key for live agent; fallback logic without key)
+- **Docker** — optional reproducible deployment
 
 **Evaluation Metrics:**
-- Precision@3
-- Precision@5
+- Precision@3 and Precision@5
 - Mean cosine similarity
+- NLP theme coverage, tool grounding rate, and refusal rate (responsible AI)
 
 ---
 
 ## 📚 Resources to Get Started
 
-The following resources will help your team understand the problem space and potential technical approaches for this project:
-
 **Background Reading:**
-- [e.g., Link to an article or blog post about the problem domain]
-- [e.g., Link to an industry report or case study]
+- [Census ACS overview](https://www.census.gov/programs-surveys/acs)
+- [Zillow Research housing data](https://www.zillow.com/research/data/)
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — responsible AI context
 
 **Technical Tutorials:**
-- [e.g., Link to a free tutorial on the ML technique(s) involved]
-- [e.g., Link to documentation for a key library or tool]
+- [scikit-learn cosine similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
+- [Streamlit docs](https://docs.streamlit.io/)
+- [Model Context Protocol (MCP) docs](https://modelcontextprotocol.io/)
+- [Google Gemini API quickstart](https://ai.google.dev/gemini-api/docs/quickstart)
 
 **Code Examples:**
-- [e.g., Link to a relevant GitHub repo]
-- [e.g., Link to a sample implementation or starter code]
+- [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer) — Challenge Advisor reference prototype (recommender, NLP themes, MCP tools, Streamlit app)
 
 **Other:**
-- [Links to any additional resources — e.g., papers, videos, podcasts, etc.]
+- [GitHub Projects documentation](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 
 *Feel free to explore beyond these, and share anything interesting you find with me!*
 
@@ -136,7 +142,7 @@ The following resources will help your team understand the problem space and pot
 **Response time:** Within 48 hours on weekdays  
 
 **Recommended Tools:**
-- **Coding:** Google Colab
+- **Coding:** Google Colab or local Python environment
 - **Collaboration:** GitHub, Notion
 - **Virtual Meetings:** Zoom, Google Meet
 
@@ -145,8 +151,9 @@ The following resources will help your team understand the problem space and pot
 ## 🚀 Getting Started
 
 1. **Review this overview document** and note any questions for our first meeting
-2. **Begin reviewing the dataset** using the link above
-3. **Read the GitHub Projects documentation** [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+2. **Explore the starter dataset** in the [`data/`](data) folder and read [`data_dictionary.md`](data_dictionary.md)
+3. **Create a GitHub Projects board** to track September–November milestones
+4. **Establish a baseline recommender** and record your first Precision@3 and mean cosine similarity scores
 
 I'm excited to work with you!
 
@@ -155,6 +162,5 @@ I'm excited to work with you!
 ## ❓ Questions?
 
 Please bring any questions to our first meeting during the week of August 24th (Break Through Tech's Bridge to Studio - Session B).
-
 
 ---

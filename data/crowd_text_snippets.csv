@@ -1,0 +1,13 @@
+snippet_id,zip,source,theme,text
+T1,33127,kaggle_reviews,transit,"Great walkability and easy bus access; felt welcoming as a newcomer."
+T2,33127,kaggle_reviews,social,"Lots of events and people meeting up; can be loud on weekends."
+T3,33130,kaggle_reviews,transit,"Metrorail nearby made commuting easy without a car."
+T4,33130,kaggle_reviews,quiet,"Busy area; street noise is real in some towers."
+T5,33139,kaggle_reviews,social,"Very social neighborhood; beach culture and nightlife."
+T6,33139,kaggle_reviews,expensive,"Rent is high but you pay for location and energy."
+T7,33133,kaggle_reviews,quiet,"Tree-lined streets and parks; quieter than downtown."
+T8,33133,kaggle_reviews,pet_friendly,"Saw many dog owners; parks are a plus."
+T9,33137,kaggle_reviews,social,"Creative scene; good for meeting people after moving."
+T10,33142,kaggle_reviews,quiet,"Affordable compared to Brickell; research blocks carefully."
+T11,33135,kaggle_reviews,social,"Strong community feel and food culture; felt connected quickly."
+T12,33128,kaggle_reviews,transit,"Central location; easy to get around with public transit."
