@@ -44,24 +44,23 @@ Plain-text list of Miami-Dade ZIP codes used to scope the project.
 | walkable | float 0-1 | Walkability proxy |
 | migration_score | float 0-1 | In-migration activity proxy (derived) |
 | median_rent_usd | int | Rent index from public sources |
-| co_living_friendly | float 0-1 | Fit for co-living / shared housing (higher for Wynwood, Downtown, Brickell) |
-| single_family_friendly | float 0-1 | Fit for detached single-family homes (higher for Kendall, Coral Gables, Pinecrest) |
+| co_living_friendly | float 0-1 | How suitable the ZIP is for co-living (only used when user selects co_living) |
 
-**Urban anchor rows:** Wynwood (`33127`), Downtown (`33128`), Brickell (`33130`).  
-**Single-family anchor rows:** Kendall (`33186`), Coral Gables (`33134`), Pinecrest (`33156`).
+**Primary demo ZIPs:** Wynwood `33127`, Downtown `33128`, Brickell `33130`.
 
 ## area_options.csv
 
-**Synthetic** listing-style cards for demo UI. **NOT REAL LISTINGS.**
+**Synthetic** demo cards. **NOT REAL LISTINGS.**
 
 | Column | Type | Description |
 |--------|------|-------------|
 | option_id | string | Synthetic ID (SYN-*) |
 | zip | string | Join key to area_features |
 | rent_band | string | Illustrative band |
-| living_type | string | `co_living`, `solo_apartment`, or `single_family` |
-| tags | string | Comma-separated tags (includes `co_living` when relevant) |
-| summary | string | Short area + living-style description |
+| housing_preference | string | `own_apartment` or `co_living` |
+| household | string | `alone` or `with_partner` |
+| tags | string | Comma-separated preference tags |
+| summary | string | Short description (e.g. couple + own apartment in Wynwood) |
 | disclaimer | string | Must display NOT A REAL LISTING |
 
 ## crowd_text_snippets.csv
@@ -73,7 +72,7 @@ Demo snippets mimicking public review/forum text for NLP themes. Replace with re
 | snippet_id | string | Row ID |
 | zip | string | Associated ZIP |
 | source | string | e.g. kaggle_reviews (document real source when replaced) |
-| theme | string | transit, social, quiet, co_living, single_family, etc. |
+| theme | string | transit, social, quiet, co_living, etc. |
 | text | string | Snippet text (aggregate use only) |
 
 ## Limitations

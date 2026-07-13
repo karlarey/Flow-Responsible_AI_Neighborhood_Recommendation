@@ -8,19 +8,28 @@
 
 ## The idea, in plain terms
 
-Moving to Miami is exciting — but you have to answer two questions: **where** do you want to live, and **what kind of home** do you want?
+You're moving to Miami — maybe from NYC — and you need to figure out **where** to live and **what kind of setup** fits you.
 
-| Housing type | Plain English |
-|--------------|---------------|
-| **Co-living** | Roommates or shared housing — you're new and don't want to live alone |
-| **Solo apartment** | Your own unit in a building — studio or 1BR, your own lease |
-| **Single-family home** | A house — more space, yard, quieter suburban blocks |
+**Example:** You and your partner want **your own apartment** in a great neighborhood. Not co-living. Not roommates. Just a private lease in a place like **Wynwood**, **Downtown**, or **Brickell**.
 
-This recommender helps newcomers get **3–5 neighborhood matches** based on budget, housing type, and lifestyle — with urban examples in **Wynwood**, **Downtown**, and **Brickell**, and single-family examples in **Kendall**, **Coral Gables**, and **Pinecrest**.
+This recommender matches newcomers to **3–5 Miami neighborhoods** based on:
 
-We use public data, machine learning, and a responsible AI assistant that answers from real tool outputs — not made-up listings.
+- **Budget**
+- **Who's moving** — alone or with a partner
+- **Housing preference** — **own apartment** (private unit) or **co-living** (shared housing if you're alone and want roommates)
+- **Lifestyle** — transit, social life, quiet, pets, walkability
 
-> **Student team:** This README becomes your portfolio at the end of the semester. Sections marked *(your team fills this in)* are for you. Start with [Challenge-Project-Overview.md](Challenge-Project-Overview.md).
+> **Student team:** Sections marked *(your team fills this in)* are for your portfolio. Start with [Challenge-Project-Overview.md](Challenge-Project-Overview.md).
+
+---
+
+## Example user stories
+
+| Who | What they want | Where we demo |
+|-----|----------------|---------------|
+| **You + partner, from NYC** | Own apartment (1–2BR), no co-living | Wynwood, Downtown, Brickell |
+| **You alone** | Own studio/1BR, no roommates | Wynwood, Downtown, Brickell |
+| **You alone, new to city** | Co-living / roommates to meet people | Downtown, Brickell (optional path) |
 
 ---
 
@@ -28,27 +37,18 @@ We use public data, machine learning, and a responsible AI assistant that answer
 
 | Step | What happens |
 |------|----------------|
-| 1 | User picks **budget**, **housing type** (co-living, solo apartment, or single-family), and **priorities**. |
-| 2 | Recommender ranks ZIP codes using `co_living_friendly` and `single_family_friendly` scores. |
-| 3 | **NLP** pulls themes from reviews (including co-living and social life). |
-| 4 | An **MCP server** gives the AI agent access to your data and recommender. |
-| 5 | The **agent** answers only from those tools — no fake apartments or invented rent. |
+| 1 | User enters budget, alone vs. with partner, own apartment vs. co-living, and lifestyle priorities |
+| 2 | Recommender ranks ZIP codes — prioritizing **own apartment** matches for couples and solo movers |
+| 3 | NLP surfaces review themes (transit, social, co_living, etc.) |
+| 4 | MCP server + agent answer only from tool outputs |
 
-### Urban anchors (co-living + solo apartment)
+### Anchor neighborhoods (own apartment)
 
-| Area | ZIP | Solo apartment | Co-living |
-|------|-----|----------------|-----------|
-| **Wynwood** | 33127 | Creative studio/1BR | Shared lofts, roommates |
-| **Downtown Miami** | 33128 | Own unit, Metromover | Co-living near work |
-| **Brickell** | 33130 | High-rise solo lease | Roommate-friendly towers |
-
-### Single-family anchors (house, not tower)
-
-| Area | ZIP | Why |
-|------|-----|-----|
-| **Kendall** | 33186 | Suburban, detached homes |
-| **Coral Gables** | 33134 | Tree-lined, residential |
-| **Pinecrest** | 33156 | Quiet, house-focused |
+| Area | ZIP | Why newcomers like it |
+|------|-----|------------------------|
+| **Wynwood** | 33127 | Creative, walkable, social — good for couples who want energy |
+| **Downtown Miami** | 33128 | Central, Metromover, easy commute |
+| **Brickell** | 33130 | Towers, Metrorail, restaurants, young professional vibe |
 
 Full details: [Challenge-Project-Overview.md](Challenge-Project-Overview.md)
 
@@ -58,64 +58,32 @@ Full details: [Challenge-Project-Overview.md](Challenge-Project-Overview.md)
 
 | File or folder | What's inside |
 |----------------|---------------|
-| [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | The full project brief — milestones, metrics, guardrails |
-| [data/](data/) | Starter dataset to explore on day one |
-| [data_dictionary.md](data_dictionary.md) | What each column means |
-| [MCP_SETUP.md](MCP_SETUP.md) | How to build and run the MCP server |
-| [notebooks/](notebooks/) | Your team's notebooks *(your team fills this in)* |
-| [requirements.txt](requirements.txt) | Python packages you'll need |
+| [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | Full project brief |
+| [data/](data/) | Starter dataset |
+| [data_dictionary.md](data_dictionary.md) | Column definitions |
+| [MCP_SETUP.md](MCP_SETUP.md) | MCP server guide |
 
-**Working example to learn from:** [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer) — has a recommender, NLP, MCP tools, and a Streamlit demo app.
+**Reference prototype:** [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer)
 
 ---
 
 ## Get started locally
 
-### 1. Clone and install
-
 ```bash
 git clone https://github.com/Break-Through-Tech/Flow-Responsible_AI_Neighborhood_Recommendation.git
 cd Flow-Responsible_AI_Neighborhood_Recommendation
 python -m venv .venv
-.venv\Scripts\activate          # Windows
-# source .venv/bin/activate     # macOS/Linux
+.venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Optional API keys
+Starter data is in [`data/`](data/). Key fields:
 
-```bash
-copy .env.example .env
-```
-
-- `GEMINI_API_KEY` — only if you want the live Gemini agent (optional)
-- `CENSUS_API_KEY` — if you refresh public Census data later in the semester
-
-### 3. Look at the data
-
-Open the [`data/`](data/) folder. Here's what each file is:
-
-| File | What it is |
-|------|------------|
-| `miami_dade_public_features.csv` | **Real public data** — rent, population, migration by ZIP |
-| `area_features.csv` | **Model starter** — `co_living_friendly` + `single_family_friendly` scores |
-| `crowd_text_snippets.csv` | **Sample reviews** — co_living, single_family, transit, social |
-| `area_options.csv` | **Demo cards** — `co_living`, `solo_apartment`, or `single_family` |
-
-More detail: [`data/README.md`](data/README.md) and [`data_dictionary.md`](data_dictionary.md).
-
-### 4. Try the reference MCP server
-
-Clone the working prototype and run it:
-
-```bash
-git clone https://github.com/karlarey/miami-newcomer-explorer.git
-cd miami-newcomer-explorer
-pip install -r requirements.txt
-python src/mcp_server.py
-```
-
-The server exposes five tools: `schema`, `area_stats`, `crowd_themes`, `recommend`, and `ethics`. See [MCP_SETUP.md](MCP_SETUP.md).
+| File | Key columns |
+|------|-------------|
+| `area_features.csv` | ZIP scores + `co_living_friendly` |
+| `area_options.csv` | `housing_preference` (`own_apartment` / `co_living`), `household` (`alone` / `with_partner`) |
+| `crowd_text_snippets.csv` | Review themes by ZIP |
 
 ---
 
@@ -129,37 +97,27 @@ The server exposes five tools: `schema`, `area_stats`, `crowd_themes`, `recommen
 
 ## 🎯 Project highlights *(your team fills this in)*
 
-What did you build? What results did you get? Add 3–5 bullet points here at the end of the semester.
-
 ---
 
 ## 📊 Data exploration *(your team fills this in)*
-
-What did you learn from the data? What cleaning or fixes did you make?
 
 ---
 
 ## 🧠 Model development *(your team fills this in)*
 
-How does your recommender work? What was your baseline vs. final performance?
-
 ---
 
 ## 📈 Results *(your team fills this in)*
-
-Share your metrics, charts, and responsible AI findings (did the agent stay grounded? did it refuse bad requests?).
 
 ---
 
 ## 🚀 Next steps *(your team fills this in)*
 
-What would you improve with more time?
-
 ---
 
 ## 📝 License
 
-MIT License — check with your Challenge Advisor before final submission.
+MIT License — confirm with Challenge Advisor before final submission.
 
 ---
 
