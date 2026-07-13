@@ -8,7 +8,7 @@
 
 ## 🏢 About Flow
 
-Flow works on helping people discover neighborhoods that fit their life — especially newcomers arriving in Miami. Your team will build a **responsible AI tool** that suggests 3–5 areas to explore based on user preferences, using public data and clear guardrails.
+Flow works on helping people discover **where** and **how** to live in Miami — especially newcomers who may want **solo apartments** or **co-living** so they're not alone in a new city. Your team will build a responsible AI recommender focused on neighborhoods like **Wynwood**, **Downtown Miami**, and **Brickell**, using public data and clear guardrails.
 
 **What we won't do:** steer people by race or family status, score individual tenants, or show fake listings as if they're real.
 
@@ -22,13 +22,28 @@ Housing search in a new city is overwhelming. Listings are scattered, data is me
 
 ### What you'll build
 
-A system that:
+A **neighborhood + living-style recommender** for Miami newcomers. Users pick **how they want to live**, not just where:
 
-1. Takes a user's **budget** and **lifestyle preferences**
-2. Recommends **3–5 Miami-Dade ZIP codes** using ML similarity matching
-3. Surfaces **review themes** (transit, quiet, social, etc.) from crowd text
-4. Connects an **AI agent** to your work through an **MCP server** so it only answers from your tools
-5. **Labels synthetic demo content clearly** and refuses harmful requests
+| Living style | Who it's for |
+|--------------|--------------|
+| **Solo** | Your own apartment or studio — privacy, your own lease |
+| **Co-living** | Shared housing, roommates, or co-living spaces — community when you're new and don't want to live alone |
+
+**Anchor neighborhoods** (use these to test and demo clearly):
+
+| Neighborhood | ZIP | Solo vibe | Co-living vibe |
+|--------------|-----|-----------|----------------|
+| **Wynwood** | 33127 | Creative, walkable, social | Shared lofts, roommate-friendly |
+| **Downtown Miami** | 33128 | Central, transit, own unit | Co-living rooms near work |
+| **Brickell** | 33130 | High-rise solo lease | Roommate-friendly towers, Metrorail |
+
+Your full system will:
+
+1. Take **budget**, **living style** (solo or co-living), and **lifestyle preferences**
+2. Recommend **3–5 Miami-Dade ZIP codes** using ML similarity matching
+3. Surface **review themes** (transit, quiet, social, **co_living**, etc.) from crowd text
+4. Connect an **AI agent** to your work through an **MCP server** so it only answers from your tools
+5. **Label synthetic demo content clearly** and refuse harmful requests
 
 ### How we'll know it's working
 
@@ -78,9 +93,9 @@ Don't wait until November to check these. Use them like a GPS:
 |------|---------------|---------------|
 | `miami_dade_public_features.csv` | **Real** | Actual public stats by ZIP — rent, population, migration |
 | `miami_dade_zctas.txt` | **Real** | List of Miami-Dade ZIP codes |
-| `area_features.csv` | **Mixed starter** | Ready-to-use features for the model; some labels are illustrative |
-| `crowd_text_snippets.csv` | **Demo** | Sample review text so you can start NLP now; replace with real reviews in October |
-| `area_options.csv` | **Synthetic only** | Fake cards for the UI — **NOT REAL LISTINGS** |
+| `area_features.csv` | **Mixed starter** | ZIP-level scores including `co_living_friendly`; anchor rows for **Wynwood, Downtown, Brickell** |
+| `crowd_text_snippets.csv` | **Demo** | Sample review text including **co-living** themes; replace with real reviews in October |
+| `area_options.csv` | **Synthetic only** | Demo cards with `living_type` (`solo` or `co_living`) — **NOT REAL LISTINGS** |
 
 **The plan:** Start with this mix so you can build fast. Over the semester, replace demo pieces with stronger public sources. The recommender should lean more on real data as you go.
 
@@ -123,7 +138,7 @@ Your team will build an MCP server with **five tools**:
 | `schema` | "Here are the columns in our dataset." |
 | `area_stats` | "Here are the stats for this ZIP (or all ZIPs)." |
 | `crowd_themes` | "Here's what people say about transit, quiet, etc. in this ZIP." |
-| `recommend` | "Given this budget and these preferences, here are the top areas." |
+| `recommend` | "Given this budget, living style (solo/co-living), and preferences, here are the top areas." |
 | `ethics` | "Here's what this tool is allowed and not allowed to do." |
 
 **Why it matters:** If the agent can only speak through these tools, it's much harder for it to invent a $1,200 Brickell apartment that doesn't exist. That's your **tool grounding rate**.

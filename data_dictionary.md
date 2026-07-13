@@ -44,6 +44,9 @@ Plain-text list of Miami-Dade ZIP codes used to scope the project.
 | walkable | float 0-1 | Walkability proxy |
 | migration_score | float 0-1 | In-migration activity proxy (derived) |
 | median_rent_usd | int | Rent index from public sources |
+| co_living_friendly | float 0-1 | How well the area fits co-living / shared housing (higher for Wynwood, Downtown, Brickell) |
+
+**Anchor rows:** Wynwood (`33127`), Downtown (`33128`), Brickell (`33130`).
 
 ## area_options.csv
 
@@ -54,8 +57,9 @@ Plain-text list of Miami-Dade ZIP codes used to scope the project.
 | option_id | string | Synthetic ID (SYN-*) |
 | zip | string | Join key to area_features |
 | rent_band | string | Illustrative band |
-| tags | string | Comma-separated preference tags |
-| summary | string | Short area description |
+| living_type | string | `solo` or `co_living` |
+| tags | string | Comma-separated tags (includes `co_living` when relevant) |
+| summary | string | Short area + living-style description |
 | disclaimer | string | Must display NOT A REAL LISTING |
 
 ## crowd_text_snippets.csv
@@ -67,7 +71,7 @@ Demo snippets mimicking public review/forum text for NLP themes. Replace with re
 | snippet_id | string | Row ID |
 | zip | string | Associated ZIP |
 | source | string | e.g. kaggle_reviews (document real source when replaced) |
-| theme | string | transit, social, quiet, etc. |
+| theme | string | transit, social, quiet, co_living, etc. |
 | text | string | Snippet text (aggregate use only) |
 
 ## Limitations

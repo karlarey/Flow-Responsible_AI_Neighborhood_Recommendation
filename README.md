@@ -8,9 +8,15 @@
 
 ## The idea, in plain terms
 
-Moving to Miami is exciting — but finding a neighborhood that fits your budget and lifestyle is hard. This project builds a tool that helps newcomers **explore areas** and get **3–5 neighborhood suggestions** based on what they care about (rent, transit, quiet streets, walkability, and more).
+Moving to Miami is exciting — but finding the **right neighborhood** and **right living setup** is hard. Do you want your own place, or co-living with roommates so you're not alone in a new city?
 
-We use **public data** (housing, migration, reviews), **machine learning** to match preferences to ZIP codes, and a **responsible AI assistant** that answers from real tool outputs — not made-up listings.
+This project builds a recommender that helps newcomers:
+
+1. **Localize** to the best Miami neighborhoods for them
+2. Choose a **living style** — **solo apartment** or **co-living / shared housing**
+3. Get **3–5 tailored suggestions** — starting with **Wynwood**, **Downtown Miami**, and **Brickell**
+
+We use public data, machine learning, and a responsible AI assistant that answers from real tool outputs — not made-up listings.
 
 > **Student team:** This README becomes your portfolio at the end of the semester. Sections marked *(your team fills this in)* are for you. Start with [Challenge-Project-Overview.md](Challenge-Project-Overview.md).
 
@@ -20,11 +26,19 @@ We use **public data** (housing, migration, reviews), **machine learning** to ma
 
 | Step | What happens |
 |------|----------------|
-| 1 | User picks a **budget** and **priorities** (transit, social life, quiet, pets, walkable). |
-| 2 | A **recommender model** ranks Miami-Dade ZIP codes that best match those preferences. |
-| 3 | **NLP** pulls themes from crowd review text (e.g. "great transit," "quiet at night"). |
-| 4 | An **MCP server** gives the AI agent access to your data and recommender — like a menu of trusted tools. |
-| 5 | The **agent** answers questions using only those tools. No fake apartments. No invented rent prices. |
+| 1 | User picks **budget**, **living style** (solo or co-living), and **priorities** (transit, social, quiet, pets, walkable). |
+| 2 | A **recommender model** ranks ZIP codes — with strong starter examples in **Wynwood**, **Downtown**, and **Brickell**. |
+| 3 | **NLP** pulls themes from reviews (including co-living and social life). |
+| 4 | An **MCP server** gives the AI agent access to your data and recommender. |
+| 5 | The **agent** answers only from those tools — no fake apartments or invented rent. |
+
+### Anchor neighborhoods to demo
+
+| Area | ZIP | Good for solo if… | Good for co-living if… |
+|------|-----|-------------------|------------------------|
+| **Wynwood** | 33127 | You want creative, walkable, social | You want roommates and community when new |
+| **Downtown Miami** | 33128 | You want central transit and your own unit | You want shared housing near work |
+| **Brickell** | 33130 | You want a high-rise and Metrorail | You want roommate-friendly towers |
 
 Full details: [Challenge-Project-Overview.md](Challenge-Project-Overview.md)
 
@@ -74,9 +88,9 @@ Open the [`data/`](data/) folder. Here's what each file is:
 | File | What it is |
 |------|------------|
 | `miami_dade_public_features.csv` | **Real public data** — rent, population, migration by ZIP |
-| `area_features.csv` | **Starter file for the model** — preference scores + public fields |
-| `crowd_text_snippets.csv` | **Sample review text** for NLP (you'll upgrade this later) |
-| `area_options.csv` | **Fake demo cards for the UI** — not real listings |
+| `area_features.csv` | **Starter file for the model** — includes `co_living_friendly`; see **Wynwood, Downtown, Brickell** |
+| `crowd_text_snippets.csv` | **Sample review text** — includes co-living themes |
+| `area_options.csv` | **Fake demo cards** — `living_type`: `solo` or `co_living` — **NOT REAL LISTINGS** |
 
 More detail: [`data/README.md`](data/README.md) and [`data_dictionary.md`](data_dictionary.md).
 
