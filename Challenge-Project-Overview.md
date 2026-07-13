@@ -50,7 +50,7 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 | Month | Milestone | Key Activities |
 |-------|-----------|----------------|
 | **September** | Data Understanding | Explore starter dataset; document real vs. synthetic files; handle missing values; establish baseline Precision@3 |
-| **October** | Model Development | Upgrade public features; tune recommender; add NLP themes; iterate when metrics plateau |
+| **October** | Model Development | Upgrade public features; tune recommender; add NLP themes; **expose MCP tools**; iterate when metrics plateau |
 | **November** | Evaluation & Presentation | Finalize model and agent guardrails; run full metric suite; prepare presentation and portfolio README |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
@@ -112,6 +112,44 @@ This project intentionally mixes **real public aggregates** with **synthetic dem
 
 ---
 
+## 🔌 MCP Server Deliverable
+
+This project includes an **MCP (Model Context Protocol) server** so an AI agent can call your recommender and data tools instead of inventing answers.
+
+### Required tools
+
+Your team should expose at least these tools (names can match the reference prototype):
+
+| Tool | Purpose |
+|------|---------|
+| `schema` | Return dataset columns and documentation |
+| `area_stats` | Return public-style stats for one ZIP or all ZIPs |
+| `crowd_themes` | Return NLP theme snippets for a ZIP |
+| `recommend` | Return top-k area recommendations from user budget + preference tags |
+| `ethics` | Return responsible-use charter and limitations |
+
+### Why MCP matters here
+
+The agent must be **tool-grounded**: it should only cite outputs from these tools (plus user-selected preferences), not make up neighborhoods, rents, or listings. Your **tool grounding rate** and **refusal rate** metrics depend on this layer.
+
+### Reference implementation
+
+See the Challenge Advisor prototype: [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer) (`src/mcp_server.py`, `src/tools.py`).
+
+Detailed setup steps: [`MCP_SETUP.md`](MCP_SETUP.md)
+
+---
+
+## 🛡️ Responsible AI Guardrails
+
+- **Area-level only** — recommend ZIPs/neighborhoods, not individual tenants or applicants.
+- **No demographic steering** — use user-selected tags (transit, quiet, etc.), not race, ethnicity, or family status.
+- **Synthetic data labeled** — `area_options.csv` cards are demos; never present them as live listings.
+- **Snapshot data only** — no real-time scraping of rental sites.
+- **Refuse prohibited requests** — tenant scoring, finding specific people, or bypassing fair-housing constraints.
+
+---
+
 ## 📚 Resources to Get Started
 
 **Background Reading:**
@@ -154,6 +192,7 @@ This project intentionally mixes **real public aggregates** with **synthetic dem
 2. **Explore the starter dataset** in the [`data/`](data) folder and read [`data_dictionary.md`](data_dictionary.md)
 3. **Create a GitHub Projects board** to track September–November milestones
 4. **Establish a baseline recommender** and record your first Precision@3 and mean cosine similarity scores
+5. **Review [`MCP_SETUP.md`](MCP_SETUP.md)** for the MCP server deliverable and reference prototype
 
 I'm excited to work with you!
 
