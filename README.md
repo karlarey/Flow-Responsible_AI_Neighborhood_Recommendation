@@ -4,42 +4,50 @@
 **Host company:** Flow  
 **Challenge Advisor:** Karla Reyes ([k.reyes@outlook.com](mailto:k.reyes@outlook.com))
 
-Help newcomers to Miami explore neighborhoods and receive **3–5 personalized area recommendations** using public housing/migration data, NLP crowd themes, similarity-based ML, and an **MCP-backed responsible AI agent**.
+---
 
-> **For the student team:** This README is your portfolio artifact. Sections marked *(team to complete)* should be filled in during AI Studio. Start with [Challenge-Project-Overview.md](Challenge-Project-Overview.md) and [Getting-Started-for-Fellows.md](Getting-Started-for-Fellows.md).
+## The idea, in plain terms
+
+Moving to Miami is exciting — but finding a neighborhood that fits your budget and lifestyle is hard. This project builds a tool that helps newcomers **explore areas** and get **3–5 neighborhood suggestions** based on what they care about (rent, transit, quiet streets, walkability, and more).
+
+We use **public data** (housing, migration, reviews), **machine learning** to match preferences to ZIP codes, and a **responsible AI assistant** that answers from real tool outputs — not made-up listings.
+
+> **Student team:** This README becomes your portfolio at the end of the semester. Sections marked *(your team fills this in)* are for you. Start with [Challenge-Project-Overview.md](Challenge-Project-Overview.md).
 
 ---
 
-## What this project builds
+## What you'll build
 
-1. Newcomer sets **budget** and **priorities** (transit, social, quiet, pets, walkable).
-2. **ML recommender** (cosine similarity) ranks Miami-Dade ZIPs from starter data.
-3. **NLP** surfaces crowd-review themes by ZIP.
-4. **MCP server** exposes data and recommender tools to an AI agent.
-5. **Agent** answers only from tool outputs — no invented listings or stats.
+| Step | What happens |
+|------|----------------|
+| 1 | User picks a **budget** and **priorities** (transit, social life, quiet, pets, walkable). |
+| 2 | A **recommender model** ranks Miami-Dade ZIP codes that best match those preferences. |
+| 3 | **NLP** pulls themes from crowd review text (e.g. "great transit," "quiet at night"). |
+| 4 | An **MCP server** gives the AI agent access to your data and recommender — like a menu of trusted tools. |
+| 5 | The **agent** answers questions using only those tools. No fake apartments. No invented rent prices. |
 
-See [Challenge-Project-Overview.md](Challenge-Project-Overview.md) for milestones, success metrics, and responsible AI guardrails.
-
----
-
-## Repository guide
-
-| Path | Description |
-|------|-------------|
-| [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | Full project brief from your Challenge Advisor |
-| [data/](data/) | Starter dataset (public + synthetic demo files) |
-| [data_dictionary.md](data_dictionary.md) | Column definitions and limitations |
-| [MCP_SETUP.md](MCP_SETUP.md) | MCP server deliverable and setup |
-| [notebooks/](notebooks/) | Your team's Jupyter notebooks *(team to complete)* |
-| [requirements.txt](requirements.txt) | Python dependencies |
-
-**Reference prototype:** [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer) — working recommender, NLP, MCP tools, and Streamlit UI.
+Full details: [Challenge-Project-Overview.md](Challenge-Project-Overview.md)
 
 ---
 
-## Setup and installation
+## What's in this repo
 
-### Clone and install
+| File or folder | What's inside |
+|----------------|---------------|
+| [Challenge-Project-Overview.md](Challenge-Project-Overview.md) | The full project brief — milestones, metrics, guardrails |
+| [data/](data/) | Starter dataset to explore on day one |
+| [data_dictionary.md](data_dictionary.md) | What each column means |
+| [MCP_SETUP.md](MCP_SETUP.md) | How to build and run the MCP server |
+| [notebooks/](notebooks/) | Your team's notebooks *(your team fills this in)* |
+| [requirements.txt](requirements.txt) | Python packages you'll need |
+
+**Working example to learn from:** [Miami Newcomer Housing Explorer](https://github.com/karlarey/miami-newcomer-explorer) — has a recommender, NLP, MCP tools, and a Streamlit demo app.
+
+---
+
+## Get started locally
+
+### 1. Clone and install
 
 ```bash
 git clone https://github.com/Break-Through-Tech/Flow-Responsible_AI_Neighborhood_Recommendation.git
@@ -50,28 +58,31 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### Environment variables (optional)
+### 2. Optional API keys
 
 ```bash
 copy .env.example .env
-# GEMINI_API_KEY — for live Gemini agent (optional)
-# CENSUS_API_KEY — for refreshing public data in October
 ```
 
-### Explore the starter data
+- `GEMINI_API_KEY` — only if you want the live Gemini agent (optional)
+- `CENSUS_API_KEY` — if you refresh public Census data later in the semester
 
-Dataset files live in [`data/`](data/). See [`data/README.md`](data/README.md) and [`data_dictionary.md`](data_dictionary.md).
+### 3. Look at the data
 
-| File | Type |
-|------|------|
-| `miami_dade_public_features.csv` | Real public aggregates |
-| `area_features.csv` | Blended starter features for the recommender |
-| `crowd_text_snippets.csv` | Demo text for NLP themes |
-| `area_options.csv` | Synthetic UI cards — **NOT REAL LISTINGS** |
+Open the [`data/`](data/) folder. Here's what each file is:
 
-### Run the reference MCP server
+| File | What it is |
+|------|------------|
+| `miami_dade_public_features.csv` | **Real public data** — rent, population, migration by ZIP |
+| `area_features.csv` | **Starter file for the model** — preference scores + public fields |
+| `crowd_text_snippets.csv` | **Sample review text** for NLP (you'll upgrade this later) |
+| `area_options.csv` | **Fake demo cards for the UI** — not real listings |
 
-Use the linked prototype repo for a working MCP example:
+More detail: [`data/README.md`](data/README.md) and [`data_dictionary.md`](data_dictionary.md).
+
+### 4. Try the reference MCP server
+
+Clone the working prototype and run it:
 
 ```bash
 git clone https://github.com/karlarey/miami-newcomer-explorer.git
@@ -80,53 +91,51 @@ pip install -r requirements.txt
 python src/mcp_server.py
 ```
 
-Tools: `schema`, `area_stats`, `crowd_themes`, `recommend`, `ethics` — see [MCP_SETUP.md](MCP_SETUP.md).
+The server exposes five tools: `schema`, `area_stats`, `crowd_themes`, `recommend`, and `ethics`. See [MCP_SETUP.md](MCP_SETUP.md).
 
 ---
 
-## 👥 Team members *(team to complete)*
+## 👥 Team members *(your team fills this in)*
 
-| Name | GitHub Handle | Contribution |
-|------|---------------|--------------|
+| Name | GitHub | What they worked on |
+|------|--------|---------------------|
 | | | |
 
 ---
 
-## 🎯 Project highlights *(team to complete)*
+## 🎯 Project highlights *(your team fills this in)*
 
-- 
-- 
-- 
+What did you build? What results did you get? Add 3–5 bullet points here at the end of the semester.
 
 ---
 
-## 📊 Data exploration *(team to complete)*
+## 📊 Data exploration *(your team fills this in)*
 
-Document your EDA, preprocessing choices, and insights from the starter and upgraded datasets.
-
----
-
-## 🧠 Model development *(team to complete)*
-
-Document your recommender, NLP approach, feature engineering, and baseline vs. final metrics (Precision@3, mean cosine similarity, etc.).
+What did you learn from the data? What cleaning or fixes did you make?
 
 ---
 
-## 📈 Results and key findings *(team to complete)*
+## 🧠 Model development *(your team fills this in)*
 
-Document performance, responsible AI evaluation (tool grounding rate, refusal rate), and fairness/explainability notes.
+How does your recommender work? What was your baseline vs. final performance?
 
 ---
 
-## 🚀 Next steps *(team to complete)*
+## 📈 Results *(your team fills this in)*
 
-Document limitations, future data upgrades, and what you would do with more time.
+Share your metrics, charts, and responsible AI findings (did the agent stay grounded? did it refuse bad requests?).
+
+---
+
+## 🚀 Next steps *(your team fills this in)*
+
+What would you improve with more time?
 
 ---
 
 ## 📝 License
 
-MIT License — confirm with Challenge Advisor before final submission.
+MIT License — check with your Challenge Advisor before final submission.
 
 ---
 

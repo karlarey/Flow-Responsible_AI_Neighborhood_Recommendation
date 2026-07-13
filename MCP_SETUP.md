@@ -1,29 +1,37 @@
 # MCP Server Setup
 
-This project requires an **MCP server** that exposes your recommender and dataset tools to an AI agent.
+An **MCP server** lets your AI agent call your recommender and data functions directly — instead of guessing answers.
 
-## Required tools
+Think of it like a waiter who can only bring items from the kitchen menu. If it's not on the menu (your tools), the agent shouldn't serve it.
 
-| Tool | Inputs | Output |
-|------|--------|--------|
-| `schema` | — | Dataset column names and notes |
-| `area_stats` | `zip_code` (optional) | Public-style area statistics |
-| `crowd_themes` | `zip_code` | NLP theme snippets for that ZIP |
-| `recommend` | `budget_max`, `tags` (comma-separated), `k` | Top-k area recommendations |
-| `ethics` | — | Responsible-use charter and limitations |
+---
 
-## Reference prototype
+## The five tools you need to build
 
-The Challenge Advisor maintains a working reference at:
-https://github.com/karlarey/miami-newcomer-explorer
+| Tool | You pass in… | You get back… |
+|------|--------------|---------------|
+| `schema` | Nothing | Column names and notes about each dataset |
+| `area_stats` | A ZIP code (optional) | Public stats for that ZIP, or all ZIPs if blank |
+| `crowd_themes` | A ZIP code | Review theme snippets (transit, quiet, social, etc.) |
+| `recommend` | Budget, preference tags, how many results (`k`) | Top neighborhood matches |
+| `ethics` | Nothing | Rules for fair, responsible use |
 
-Key files:
-- `src/mcp_server.py` — MCP tool definitions
-- `src/tools.py` — shared logic used by MCP and UI
-- `src/recommender.py` — cosine-similarity ranking
-- `src/nlp_themes.py` — crowd text themes
+---
 
-## Run the reference MCP server (local)
+## See a working example
+
+Karla's reference prototype has all of this already built:
+
+**Repo:** https://github.com/karlarey/miami-newcomer-explorer
+
+| File | What it does |
+|------|--------------|
+| `src/mcp_server.py` | Defines the five MCP tools |
+| `src/tools.py` | Shared logic behind the tools |
+| `src/recommender.py` | Cosine-similarity ranking |
+| `src/nlp_themes.py` | Pulls themes from review text |
+
+### Run it locally
 
 ```bash
 git clone https://github.com/karlarey/miami-newcomer-explorer.git
@@ -34,16 +42,18 @@ pip install -r requirements.txt
 python src/mcp_server.py
 ```
 
-Optional Gemini agent (separate from MCP):
+Optional — for the Gemini agent (separate from MCP):
 
 ```bash
 copy .env.example .env
-# set GEMINI_API_KEY in .env
+# Add your GEMINI_API_KEY
 ```
 
-## Connect in Cursor (example)
+---
 
-Add to your Cursor MCP settings:
+## Connect in Cursor
+
+Add this to your Cursor MCP settings (update the path to your project):
 
 ```json
 {
@@ -57,19 +67,23 @@ Add to your Cursor MCP settings:
 }
 ```
 
-Adjust `cwd` to your project root after you implement your own `src/mcp_server.py`.
+---
 
-## Team deliverable (October)
+## Your team's deliverable (October)
 
-1. Implement the five tools above using this repo's `data/` files.
-2. Verify the agent only answers from tool outputs (measure **tool grounding rate**).
-3. Verify prohibited requests are refused (measure **refusal rate**).
-4. Document how to run your MCP server in your team README.
+By end of October, your team should:
 
-## Testing checklist
+1. Build your own MCP server using this repo's `data/` files
+2. Confirm the agent only uses tool outputs (**tool grounding rate**)
+3. Confirm bad requests get refused (**refusal rate**)
+4. Document how to run your server in the team README
 
-- [ ] `schema` returns column names for all starter CSV files
+---
+
+## Quick test checklist
+
+- [ ] `schema` lists columns for all starter CSVs
 - [ ] `recommend` returns 3–5 ZIPs for a sample budget + tags
-- [ ] `crowd_themes` returns snippets for a known ZIP
-- [ ] `ethics` returns fair-housing / limitations text
-- [ ] Agent does not invent rents, listings, or neighborhoods when tools are available
+- [ ] `crowd_themes` returns text for a ZIP you know exists
+- [ ] `ethics` returns the fair-use rules
+- [ ] Agent does **not** invent rents, listings, or neighborhoods when tools are available
