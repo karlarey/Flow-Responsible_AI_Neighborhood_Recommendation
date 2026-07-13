@@ -8,7 +8,7 @@
 
 ## The idea, in plain terms
 
-**For newcomers:** You're moving to Miami — maybe from NYC — and need the **right neighborhood** and **living setup** (e.g. you and your partner, your own apartment in Wynwood, Downtown, or Brickell — no co-living).
+**For newcomers:** You're moving to Miami — maybe from NYC — and need the **right neighborhood** and **living setup** (e.g. your own apartment with a **co-leaser** on the lease in Wynwood, Downtown, or Brickell — not a co-living facility).
 
 **For Flow:** A **recommendation engine + LLM** that improves **occupancy** (faster, better lease matches) and **renewals** (residents who fit their area stay longer). Stronger operations look better to **PE investors and lenders**.
 
@@ -22,7 +22,7 @@ This project builds that engine: match users to **3–5 neighborhoods** from bud
 
 | Who | What they want | Business impact for Flow |
 |-----|----------------|--------------------------|
-| **Couple from NYC** | Own apartment in Wynwood / Downtown / Brickell | Faster lease decision → **occupancy** |
+| **Couple from NYC** | Own apartment with a co-leaser | Faster lease decision → **occupancy** |
 | **Solo mover** | Own studio/1BR, no roommates | Better initial fit → **renewal** likelihood |
 | **Solo, wants community** | Co-living (optional path) | Fill appropriate inventory → **occupancy** |
 
@@ -32,7 +32,7 @@ This project builds that engine: match users to **3–5 neighborhoods** from bud
 
 | Step | What happens |
 |------|----------------|
-| 1 | User enters budget, alone vs. with partner, own apartment vs. co-living, and lifestyle priorities |
+| 1 | User enters budget, alone vs. with co-leaser, own apartment vs. co-living, and lifestyle priorities |
 | 2 | Recommender ranks ZIP codes — prioritizing **own apartment** matches for couples and solo movers |
 | 3 | NLP surfaces review themes (transit, social, co_living, etc.) |
 | 4 | MCP server + agent answer only from tool outputs |
@@ -82,7 +82,7 @@ Starter data is in [`data/`](data/). Key fields:
 | File | Key columns |
 |------|-------------|
 | `area_features.csv` | ZIP scores + `co_living_friendly` |
-| `area_options.csv` | `housing_preference` (`own_apartment` / `co_living`), `household` (`alone` / `with_partner`) |
+| `area_options.csv` | `housing_preference` (`own_apartment` / `co_living`), `household` (`alone` / `with_co_leaser`) |
 | `crowd_text_snippets.csv` | Review themes by ZIP |
 
 ---

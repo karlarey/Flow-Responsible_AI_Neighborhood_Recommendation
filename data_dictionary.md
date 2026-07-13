@@ -58,7 +58,7 @@ Plain-text list of Miami-Dade ZIP codes used to scope the project.
 | zip | string | Join key to area_features |
 | rent_band | string | Illustrative band |
 | housing_preference | string | `own_apartment` or `co_living` |
-| household | string | `alone` or `with_partner` |
+| household | string | `alone` or `with_co_leaser` (someone on the same private lease — not co-living) |
 | tags | string | Comma-separated preference tags |
 | summary | string | Short description (e.g. couple + own apartment in Wynwood) |
 | disclaimer | string | Must display NOT A REAL LISTING |

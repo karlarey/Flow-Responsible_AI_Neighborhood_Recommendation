@@ -36,7 +36,7 @@ Starter test cases live in [`eval/`](eval/).
 **Example:**
 
 ```text
-Profile: partner + own_apartment + $2500 + transit + walkable
+Profile: co-leaser + own_apartment + $2500 + transit + walkable
 Expected relevant: 33130, 33128, 33127
 Top 3: 33130, 33128, 33132 → Precision@3 = 2/3
 ```

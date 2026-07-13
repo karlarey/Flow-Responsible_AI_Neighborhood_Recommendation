@@ -18,7 +18,7 @@ Flow is a residential operator where **occupancy** and **renewals (retention)** 
 | **Renewals / retention** | Bad initial match → unhappy residents → move out at renewal | Match newcomers to the **right area and living setup** upfront → higher satisfaction → **residents stay** |
 | **Investor & lender confidence** | Hard to show differentiated, data-driven leasing | Responsible AI rec engine + LLM → measurable match quality → **stronger ops story** for capital partners |
 
-**End users** are newcomers (e.g. a couple moving from NYC who want their own apartment in Wynwood, Downtown, or Brickell — not co-living). **Flow** deploys the engine to improve lease-up and retention. **PE and lenders** don't use the app — they evaluate Flow on occupancy, renewal rates, and how well the portfolio is run.
+**End users** are newcomers (e.g. moving from NYC with a co-leaser, wanting their own apartment in Wynwood, Downtown, or Brickell — not a co-living facility). **Flow** deploys the engine to improve lease-up and retention. **PE and lenders** don't use the app — they evaluate Flow on occupancy, renewal rates, and how well the portfolio is run.
 
 ### What you're building for Flow
 
@@ -47,18 +47,20 @@ For newcomers, housing search in Miami is overwhelming — listings are scattere
 A **neighborhood recommender for Miami newcomers**.
 
 **Primary use case:**  
-*"I'm moving from NYC with my partner. We want our own apartment — no co-living — in Wynwood, Downtown, or Brickell."*
+*"I'm moving from NYC with a co-leaser. We want our own apartment on a private lease — not a co-living facility — in Wynwood, Downtown, or Brickell."*
+
+> **Co-leaser vs. co-living:** A **co-leaser** shares *your* private lease (partner, friend, etc.). **Co-living** is a separate housing preference for shared/stranger roommate setups — not the same thing.
 
 | Input | Options | Example |
 |-------|---------|---------|
-| **Household** | Alone or with partner | With partner |
+| **Household** | Alone or with co-leaser | With co-leaser |
 | **Housing preference** | **Own apartment** or **co-living** | Own apartment |
 | **Budget + lifestyle** | Rent max, transit, social, quiet, etc. | $2,500, transit + walkable |
 
 | Preference | Meaning |
 |------------|---------|
-| **Own apartment** | Private lease — studio, 1BR, or 2BR. **No roommates.** For you alone or you + partner. |
-| **Co-living** | Optional — only if user is **alone** and **wants** shared housing / roommates |
+| **Own apartment** | Private unit on your lease — studio, 1BR, or 2BR. Alone or with a **co-leaser**. Not a co-living facility. |
+| **Co-living** | Optional — shared housing / stranger roommates when you're alone and want that setup |
 
 > User chooses household and preference. Never infer relationship status from demographics.
 
@@ -131,7 +133,7 @@ Don't wait until November to check these. Use them like a GPS:
 | `miami_dade_zctas.txt` | **Real** | List of Miami-Dade ZIP codes |
 | `area_features.csv` | **Mixed starter** | ZIP scores + `co_living_friendly`; anchor rows for **Wynwood (33127), Downtown (33128), Brickell (33130)** |
 | `crowd_text_snippets.csv` | **Demo** | Review themes including transit, social, co_living |
-| `area_options.csv` | **Synthetic only** | `housing_preference` (`own_apartment` / `co_living`), `household` (`alone` / `with_partner`) — **NOT REAL LISTINGS** |
+| `area_options.csv` | **Synthetic only** | `housing_preference` (`own_apartment` / `co_living`), `household` (`alone` / `with_co_leaser`) — **NOT REAL LISTINGS** |
 
 **The plan:** Start with this mix so you can build fast. Over the semester, replace demo pieces with stronger public sources. The recommender should lean more on real data as you go.
 

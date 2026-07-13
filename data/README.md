@@ -4,15 +4,15 @@ See [`data_dictionary.md`](../data_dictionary.md) for column details.
 
 ## Who this is for
 
-Newcomers to Miami — e.g. a couple moving from NYC who want **their own apartment** in Wynwood, Downtown, or Brickell. **Not co-living. Not roommates.**
+Newcomers to Miami — e.g. moving from NYC with a **co-leaser** on a private lease, wanting **your own apartment** in Wynwood, Downtown, or Brickell. **Not a co-living facility.**
 
-Co-living is an **optional** path in the data for people who are **alone** and **want** shared housing.
+Co-living is an **optional** path for people who are **alone** and **want** shared/stranger roommate housing.
 
 ## User inputs (what the recommender uses)
 
 | Field | Values | Example |
 |-------|--------|---------|
-| `household` | `alone`, `with_partner` | `with_partner` |
+| `household` | `alone`, `with_co_leaser` | `with_co_leaser` |
 | `housing_preference` | `own_apartment`, `co_living` | `own_apartment` |
 | Budget + lifestyle tags | transit, social, quiet, etc. | transit, walkable |
 

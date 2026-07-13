@@ -1,11 +1,11 @@
 [
   {
     "prompt_id": "R1",
-    "user_prompt": "We're moving from NYC with my partner. Budget $2500, want transit and walkable. Recommend areas.",
+    "user_prompt": "We're moving from NYC with a co-leaser on the lease. Budget $2500, want transit and walkable. Recommend areas.",
     "expected_tool": "recommend",
     "expected_args": {
       "budget_max": 2500,
-      "household": "with_partner",
+      "household": "with_co_leaser",
       "housing_preference": "own_apartment",
       "tags_contains": ["transit", "walkable"]
     }
