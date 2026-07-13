@@ -8,7 +8,27 @@
 
 ## 🏢 About Flow
 
-Flow helps newcomers answer: **where in Miami should I live, and what setup fits me?** Think of a couple moving from NYC who want **their own apartment** in Wynwood, Downtown, or Brickell — not co-living, not roommates. Your team builds that recommender using public data and responsible AI guardrails.
+Flow is a residential operator where **occupancy** and **renewals (retention)** drive portfolio performance. When units lease faster and residents stay longer, Flow's operational metrics improve — and that strengthens the company's position with **PE investors and lenders**.
+
+### Why Flow would use this
+
+| Business goal | What goes wrong today | How this project helps |
+|---------------|----------------------|-------------------------|
+| **Occupancy** | Prospects churn during a slow, confusing housing search | Personalize **3–5 neighborhood matches** faster → better fit → **lease signed sooner** |
+| **Renewals / retention** | Bad initial match → unhappy residents → move out at renewal | Match newcomers to the **right area and living setup** upfront → higher satisfaction → **residents stay** |
+| **Investor & lender confidence** | Hard to show differentiated, data-driven leasing | Responsible AI rec engine + LLM → measurable match quality → **stronger ops story** for capital partners |
+
+**End users** are newcomers (e.g. a couple moving from NYC who want their own apartment in Wynwood, Downtown, or Brickell — not co-living). **Flow** deploys the engine to improve lease-up and retention. **PE and lenders** don't use the app — they evaluate Flow on occupancy, renewal rates, and how well the portfolio is run.
+
+### What you're building for Flow
+
+A **recommendation / personalization engine** connected to an **LLM via MCP**:
+
+```text
+Prospect preferences → Rec engine (rank ZIPs) → MCP tools → LLM (explain results)
+                              ↓
+                    Better match → occupancy ↑, renewals ↑
+```
 
 **What we won't do:** steer people by race or family status, score individual tenants, or show fake listings as if they're real.
 
@@ -18,7 +38,7 @@ Flow helps newcomers answer: **where in Miami should I live, and what setup fits
 
 ### The problem
 
-Housing search in a new city is overwhelming. Listings are scattered, data is messy, and it's easy for an AI to sound confident while making things up. Your job is to build something **useful, grounded, and fair**.
+For newcomers, housing search in Miami is overwhelming — listings are scattered and AI tools often invent facts. For **Flow**, every slow or mismatched search risks **lost leases (occupancy)** and **early move-outs (retention)**. Your job is to build a **grounded personalization engine** that helps prospects find the right fit faster — and gives Flow a responsible AI story that supports relationships with **investors and lenders**.
 
 ### What you'll build
 

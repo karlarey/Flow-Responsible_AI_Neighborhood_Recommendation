@@ -8,16 +8,11 @@
 
 ## The idea, in plain terms
 
-You're moving to Miami — maybe from NYC — and you need to figure out **where** to live and **what kind of setup** fits you.
+**For newcomers:** You're moving to Miami — maybe from NYC — and need the **right neighborhood** and **living setup** (e.g. you and your partner, your own apartment in Wynwood, Downtown, or Brickell — no co-living).
 
-**Example:** You and your partner want **your own apartment** in a great neighborhood. Not co-living. Not roommates. Just a private lease in a place like **Wynwood**, **Downtown**, or **Brickell**.
+**For Flow:** A **recommendation engine + LLM** that improves **occupancy** (faster, better lease matches) and **renewals** (residents who fit their area stay longer). Stronger operations look better to **PE investors and lenders**.
 
-This recommender matches newcomers to **3–5 Miami neighborhoods** based on:
-
-- **Budget**
-- **Who's moving** — alone or with a partner
-- **Housing preference** — **own apartment** (private unit) or **co-living** (shared housing if you're alone and want roommates)
-- **Lifestyle** — transit, social life, quiet, pets, walkability
+This project builds that engine: match users to **3–5 neighborhoods** from budget, household, housing preference, and lifestyle — with an MCP-backed LLM that explains results without inventing listings.
 
 > **Student team:** Sections marked *(your team fills this in)* are for your portfolio. Start with [Challenge-Project-Overview.md](Challenge-Project-Overview.md).
 
@@ -25,11 +20,11 @@ This recommender matches newcomers to **3–5 Miami neighborhoods** based on:
 
 ## Example user stories
 
-| Who | What they want | Where we demo |
-|-----|----------------|---------------|
-| **You + partner, from NYC** | Own apartment (1–2BR), no co-living | Wynwood, Downtown, Brickell |
-| **You alone** | Own studio/1BR, no roommates | Wynwood, Downtown, Brickell |
-| **You alone, new to city** | Co-living / roommates to meet people | Downtown, Brickell (optional path) |
+| Who | What they want | Business impact for Flow |
+|-----|----------------|--------------------------|
+| **Couple from NYC** | Own apartment in Wynwood / Downtown / Brickell | Faster lease decision → **occupancy** |
+| **Solo mover** | Own studio/1BR, no roommates | Better initial fit → **renewal** likelihood |
+| **Solo, wants community** | Co-living (optional path) | Fill appropriate inventory → **occupancy** |
 
 ---
 
