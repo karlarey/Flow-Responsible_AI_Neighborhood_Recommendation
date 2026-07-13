@@ -32,6 +32,8 @@ Prospect preferences → Rec engine (rank ZIPs) → MCP tools → LLM (explain r
 
 **What we won't do:** steer people by race or family status, score individual tenants, or show fake listings as if they're real.
 
+**Read next:** [STAKEHOLDERS.md](STAKEHOLDERS.md) (value proposition) · [ARCHITECTURE.md](ARCHITECTURE.md) (system design) · [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md) (how to measure accuracy)
+
 ---
 
 ## 🎯 The Challenge
@@ -78,13 +80,16 @@ Your full system will:
 
 ### How we'll know it's working
 
-| Metric | Plain English | Goal |
-|--------|---------------|------|
-| **Precision@3 / @5** | Of the top 3 (or 5) ZIPs you recommend, how many are actually good matches? | Higher is better |
-| **Mean cosine similarity** | How closely do recommended areas match the user's stated preferences? | Higher is better |
-| **NLP theme coverage** | Do recommended areas have review themes for the categories users care about? | Broader is better |
-| **Tool grounding rate** | Does the agent stick to your tool outputs instead of inventing facts? | Higher is better |
-| **Refusal rate** | When someone asks something off-limits (tenant scoring, demographic steering), does the agent say no? | Should refuse appropriately |
+Measure **three layers** — see [EVAL_FRAMEWORK.md](EVAL_FRAMEWORK.md) and starter tests in [`eval/`](eval/).
+
+| Layer | Metric | Plain English |
+|-------|--------|---------------|
+| **1. Rec engine** | Precision@3 / @5 | Top ZIPs match advisor gold labels |
+| **1. Rec engine** | Mean cosine similarity | Recommendations fit stated preferences |
+| **2. MCP routing** | Tool selection accuracy | Agent calls `recommend` vs `area_stats` vs `ethics` correctly |
+| **3. LLM** | Tool grounding rate | Answers cite tool JSON only — no invented facts |
+| **3. LLM** | Refusal rate | Prohibited prompts refused ([eval/prohibited_prompts.json](eval/prohibited_prompts.json)) |
+| **NLP** | Theme coverage | Recommended ZIPs have relevant review themes |
 
 ### Use metrics to improve — not just to report
 
@@ -105,7 +110,7 @@ Don't wait until November to check these. Use them like a GPS:
 |-------|-------|-----------------|
 | **September** | Understand the data | Explore CSVs, note what's real vs. demo, handle missing values, get a baseline score |
 | **October** | Build and improve the model | Better public data, recommender tuning, NLP themes, **MCP server** |
-| **November** | Evaluate and present | Final metrics, responsible AI checks, presentation + README |
+| **November** | Evaluate and present | Run full [eval/](eval/) scorecard; presentation + README |
 
 > **Tip:** Create a GitHub Projects board in this repo. Add columns for September, October, and November. Break big tasks into weekly to-dos.
 
